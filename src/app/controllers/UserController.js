@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import File from '../models/File';
 import User from '../models/User';
+import Doctor from '../models/Doctor';
 
 class UserController {
   async store(req, res) {
@@ -78,6 +79,7 @@ class UserController {
       id,
       name,
       avatar,
+      doctor,
       phone,
       provider,
       password_hash,
@@ -88,6 +90,11 @@ class UserController {
           as: 'avatar',
           attributes: ['id', 'path', 'url'],
         },
+        {
+          model: Doctor,
+          as: 'doctor',
+          attributes: ['id', 'specialty', 'crm'],
+        },
       ],
     });
 
@@ -96,6 +103,7 @@ class UserController {
       name,
       email,
       avatar,
+      doctor,
       provider,
       phone,
       password_hash,

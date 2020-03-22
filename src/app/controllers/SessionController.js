@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import User from '../models/User';
 import File from '../models/File';
 import authConfig from '../../config/auth';
+import Doctor from '../models/Doctor';
 
 class SessionController {
   async store(req, res) {
@@ -28,6 +29,11 @@ class SessionController {
           as: 'avatar',
           attributes: ['id', 'path', 'url'],
         },
+        {
+          model: Doctor,
+          as: 'doctor',
+          attributes: ['id', 'specialty', 'crm'],
+        },
       ],
     });
 
@@ -35,7 +41,7 @@ class SessionController {
       return res.status(401).json({ error: 'User not found' });
     }
 
-    const { id, name, phone, avatar, provider } = user;
+    const { id, name, phone, avatar, doctor, provider } = user;
 
     return res.json({
       user: {
@@ -45,6 +51,7 @@ class SessionController {
         email,
         provider,
         avatar,
+        doctor,
         password_hash,
       },
       token: jwt.sign({ id }, authConfig.secret, {
