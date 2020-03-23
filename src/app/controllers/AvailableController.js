@@ -31,7 +31,7 @@ class AvailableController {
     });
 
     const schedule = [
-      '07:00', // 2018-06-23 07:00:00
+      '07:00', // 2018-06-23 07:00:00 time zone change
       '07:30',
       '08:00',
       '08:30',
