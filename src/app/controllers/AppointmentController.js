@@ -35,7 +35,20 @@ class AppointmentController {
       ],
     });
 
-    return res.json(appointments);
+    const formate = appointments.map(appointment => {
+      const { date, id, past, cancelable, provider, name } = appointment;
+
+      return {
+        id,
+        past,
+        cancelable,
+        provider,
+        name,
+        date: format(date, "d 'de' MMMM HH:mm"),
+      };
+    });
+
+    return res.json(formate);
   }
 
   async store(req, res) {
