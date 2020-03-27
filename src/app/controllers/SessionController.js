@@ -41,6 +41,11 @@ class SessionController {
       return res.status(401).json({ error: 'User not found' });
     }
 
+    const pass = await User.findOne({ where: { password_hash } });
+    if (!pass) {
+      return res.status(401).json({ error: 'User not found' });
+    }
+
     const { id, name, phone, avatar, doctor, provider } = user;
 
     return res.json({
