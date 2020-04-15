@@ -14,11 +14,11 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: true,
-        unique: true,
       },
       password_hash: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       provider: {
         type: Sequelize.BOOLEAN,
