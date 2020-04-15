@@ -11,7 +11,7 @@ class User extends Model {
         phone: {
           type: Sequelize.STRING,
           validate: {
-            len: [8, 12],
+            len: [8, 16],
           },
         },
       },

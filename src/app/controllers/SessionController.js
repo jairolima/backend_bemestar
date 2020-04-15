@@ -9,9 +9,7 @@ import Doctor from '../models/Doctor';
 class SessionController {
   async store(req, res) {
     const schema = Yup.object().shape({
-      email: Yup.string()
-        .email()
-        .required(),
+      phone: Yup.string().required(),
       password_hash: Yup.string().required(),
     });
 
@@ -19,10 +17,10 @@ class SessionController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    const { email, password_hash } = req.body;
+    const { phone, password_hash } = req.body;
 
     const user = await User.findOne({
-      where: { email },
+      where: { phone },
       include: [
         {
           model: File,
@@ -41,12 +39,14 @@ class SessionController {
       return res.status(401).json({ error: 'User not found' });
     }
 
-    const pass = await User.findOne({ where: { password_hash } });
-    if (!pass) {
+    const pass = await User.findOne({
+      where: { password_hash: req.body.password_hash, phone: req.body.phone },
+    });
+    if (!pass.password_hash) {
       return res.status(401).json({ error: 'User not found' });
     }
 
-    const { id, name, phone, avatar, doctor, provider } = user;
+    const { id, name, email, avatar, doctor, provider } = user;
 
     return res.json({
       user: {
