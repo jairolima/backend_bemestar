@@ -4,14 +4,35 @@ class User extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: Sequelize.STRING,
+        name: {
+          type: Sequelize.STRING,
+          validate: {
+            notEmpty: {
+              msg: 'The field cannot be empty',
+            },
+          },
+        },
+
         email: Sequelize.STRING,
-        password_hash: Sequelize.STRING,
+
+        password_hash: {
+          type: Sequelize.STRING,
+          validate: {
+            notEmpty: {
+              msg: 'The field cannot be empty',
+            },
+          },
+        },
+
         provider: Sequelize.BOOLEAN,
+
         phone: {
           type: Sequelize.STRING,
           validate: {
             len: [8, 16],
+            notEmpty: {
+              msg: 'The field cannot be empty',
+            },
           },
         },
       },
