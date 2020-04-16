@@ -20,7 +20,7 @@ class SessionController {
     const { phone, password_hash } = req.body;
 
     const user = await User.findOne({
-      where: { phone },
+      where: { password_hash },
       include: [
         {
           model: File,
