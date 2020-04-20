@@ -10,6 +10,8 @@ import AppointmentController from './app/controllers/AppointmentController';
 import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
 import AvailableController from './app/controllers/AvailableController';
+import AllappointmentController from './app/controllers/AllappointmentController';
+import QuantityappointmentController from './app/controllers/QuantityappointmentController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -20,6 +22,8 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
 routes.get('/', (req, res) => res.send('Backend OK'));
+routes.get('/allappointments', AllappointmentController.index);
+routes.get('/quantityappointments', QuantityappointmentController.index);
 
 routes.use(authMiddleware);
 
