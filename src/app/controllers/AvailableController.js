@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import {
   startOfDay,
   endOfDay,
@@ -30,6 +31,48 @@ class AvailableController {
       },
     });
 
+    const { providerId } = req.params;
+
+    if (providerId == 9) {
+      const schedule = [
+        '08:00',
+        '08:15',
+        '08:30',
+        '08:45',
+        '09:00',
+        '09:15',
+        '09:30',
+        '09:45',
+        '10:00',
+        '10:15',
+        '10:30',
+        '10:45',
+        '11:00',
+        '11:15',
+        '11:30',
+        '11:45',
+        '12:00',
+      ];
+
+      const avaiable = schedule.map(time => {
+        const [hour, minute] = time.split(':');
+        const value = setSeconds(
+          setMinutes(setHours(searchDate, hour), minute),
+          0
+        );
+
+        return {
+          time,
+          value: format(value, "yyyy-MM-dd'T'HH:mm:ssxxx"),
+          avaiable:
+            isAfter(value, new Date()) &&
+            !appointments.find(a => format(a.date, 'HH:mm') === time),
+        };
+      });
+
+      return res.json(avaiable);
+    }
+
     const schedule = [
       '07:00', // 2018-06-23 07:00:00 time zone change
       '07:20',
@@ -47,24 +90,6 @@ class AvailableController {
       '11:20',
       '11:40',
       '12:00',
-      '12:20',
-      '12:40',
-      '13:00',
-      '13:20',
-      '13:40',
-      '14:00',
-      '14:20',
-      '14:40',
-      '15:00',
-      '15:20',
-      '15:40',
-      '16:00',
-      '16:20',
-      '16:40',
-      '17:00',
-      '17:20',
-      '17:40',
-      '18:00',
     ];
 
     const avaiable = schedule.map(time => {

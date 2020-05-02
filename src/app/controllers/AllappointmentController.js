@@ -1,15 +1,20 @@
-// import { startOfDay } from 'date-fns';
-// import { Op } from 'sequelize';
-import { format } from 'date-fns';
+import { startOfDay, format } from 'date-fns';
+import { Op } from 'sequelize';
 
 import User from '../models/User';
 import Appointment from '../models/Appointment';
 
 class AllappointmentController {
   async index(req, res) {
+    const today = new Date();
+    const searchDate = Number(today);
+
     const allappointments = await Appointment.findAll({
       where: {
         canceled_at: null,
+        date: {
+          [Op.gt]: startOfDay(searchDate),
+        },
       },
       attributes: ['date'],
       include: [
