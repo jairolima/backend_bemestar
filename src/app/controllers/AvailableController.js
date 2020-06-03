@@ -52,6 +52,10 @@ class AvailableController {
         '11:30',
         '11:45',
         '12:00',
+        '12:15',
+        '12:30',
+        '12:45',
+        '13:00',
       ];
 
       const avaiable = schedule.map(time => {
@@ -74,10 +78,7 @@ class AvailableController {
     }
 
     const schedule = [
-      '07:00', // 2018-06-23 07:00:00 time zone change
-      '07:20',
-      '07:40',
-      '08:00',
+      '08:00', // 2018-06-23 07:00:00 time zone change
       '08:20',
       '08:40',
       '09:00',
@@ -90,6 +91,9 @@ class AvailableController {
       '11:20',
       '11:40',
       '12:00',
+      '12:20',
+      '12:40',
+      '13:00',
     ];
 
     const avaiable = schedule.map(time => {
