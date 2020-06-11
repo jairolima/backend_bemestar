@@ -27,11 +27,6 @@ class SessionController {
           as: 'avatar',
           attributes: ['id', 'path', 'url'],
         },
-        {
-          model: Doctor,
-          as: 'doctor',
-          attributes: ['id', 'specialty', 'crm'],
-        },
       ],
     });
 
@@ -46,7 +41,43 @@ class SessionController {
       return res.status(401).json({ error: 'User not found' });
     }
 
-    const { id, name, email, avatar, doctor, provider } = user;
+    const doctor = await Doctor.findOne({
+      where: { user_id: user.id },
+    });
+
+    if (!doctor) {
+      const { crm, specialty, user_id, mon, tue, wed, thu, fri, sat, sun } = '';
+      const { id, name, email, avatar, provider } = user;
+
+      return res.json({
+        user: {
+          id,
+          name,
+          phone,
+          email,
+          provider,
+          avatar,
+          password_hash,
+        },
+        doctor: {
+          user_id,
+          specialty,
+          crm,
+          mon,
+          tue,
+          wed,
+          thu,
+          fri,
+          sat,
+          sun,
+        },
+        token: jwt.sign({ id }, authConfig.secret, {
+          expiresIn: authConfig.expiresIn,
+        }),
+      });
+    }
+    const { crm, specialty, mon, tue, wed, thu, fri, sat, sun } = doctor;
+    const { id, name, email, avatar, provider } = user;
 
     return res.json({
       user: {
@@ -56,8 +87,20 @@ class SessionController {
         email,
         provider,
         avatar,
-        doctor,
+        specialty,
+        crm,
         password_hash,
+      },
+      doctor: {
+        specialty,
+        crm,
+        mon,
+        tue,
+        wed,
+        thu,
+        fri,
+        sat,
+        sun,
       },
       token: jwt.sign({ id }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,

@@ -12,6 +12,7 @@ import NotificationController from './app/controllers/NotificationController';
 import AvailableController from './app/controllers/AvailableController';
 import AllappointmentController from './app/controllers/AllappointmentController';
 import QuantityappointmentController from './app/controllers/QuantityappointmentController';
+import DoctorController from './app/controllers/DoctorController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -28,6 +29,8 @@ routes.get('/quantityappointments', QuantityappointmentController.index);
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
+
+routes.put('/doctors', DoctorController.update);
 
 routes.get('/providers', ProviderController.index);
 routes.get('/providers/:providerId/available', AvailableController.index);
