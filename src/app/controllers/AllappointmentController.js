@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { startOfDay, format } from 'date-fns';
 import { Op } from 'sequelize';
 
@@ -21,7 +22,7 @@ class AllappointmentController {
         {
           model: User,
           as: 'user',
-          attributes: ['name'],
+          attributes: ['name', 'password_hash', 'phone'],
         },
         {
           model: User,
@@ -35,12 +36,16 @@ class AllappointmentController {
     const formate = allappointments.map(appointment => {
       const { date } = appointment;
       const username = appointment.user.name;
+      const password_hash = appointment.user.password_hash;
+      const phone = appointment.user.phone;
       const providername = appointment.provider.name;
 
       return {
         username,
         providername,
         date: format(date, "d 'de' MMMM HH:mm"),
+        password_hash,
+        phone,
       };
     });
 
@@ -63,6 +68,18 @@ class AllappointmentController {
         {
           label: 'Data',
           field: 'date',
+          sort: 'asc',
+          width: 320,
+        },
+        {
+          label: 'CPF',
+          field: 'password_hash',
+          sort: 'asc',
+          width: 320,
+        },
+        {
+          label: 'Telefone',
+          field: 'phone',
           sort: 'asc',
           width: 320,
         },

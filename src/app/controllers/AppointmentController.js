@@ -5,6 +5,7 @@ import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointment';
 import Notification from '../schemas/Notification';
+import Doctor from '../models/Doctor';
 
 // import CancellationMail from '../jobs/CancellationMail';
 // import Queue from '../../lib/Queue';
@@ -100,6 +101,17 @@ class AppointmentController {
       return res
         .status(400)
         .json({ error: 'Appointment date is not available' });
+    }
+
+    // If crm provider_id null so we need to find who is the responsable doctor in order to create an appointment too
+
+    // Find doctor
+    const { crm } = await Doctor.findOne({
+      where: { user_id: provider_id },
+    });
+
+    if (crm === null) {
+      return res.status(200).json({ message: 'Provider crm is null' });
     }
 
     const appointment = await Appointment.create({
