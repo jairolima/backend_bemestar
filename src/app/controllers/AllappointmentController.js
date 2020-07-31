@@ -83,6 +83,12 @@ class AllappointmentController {
           sort: 'asc',
           width: 320,
         },
+        {
+          label: 'Filtro',
+          field: 'filter',
+          sort: 'asc',
+          width: 320,
+        },
       ],
       rows,
     });
