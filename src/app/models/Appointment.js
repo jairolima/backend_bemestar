@@ -7,6 +7,14 @@ class Appointment extends Model {
       {
         date: Sequelize.DATE,
         canceled_at: Sequelize.DATE,
+        filter: Sequelize.STRING,
+        price: Sequelize.STRING,
+        health_insurance: Sequelize.STRING,
+        confirmed: Sequelize.STRING,
+        showed_up: Sequelize.STRING,
+        description: Sequelize.STRING,
+        payment_option: Sequelize.STRING,
+        recepcionist: Sequelize.STRING,
         past: {
           type: Sequelize.VIRTUAL,
           get() {

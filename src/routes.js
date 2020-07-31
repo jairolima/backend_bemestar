@@ -25,15 +25,14 @@ routes.post('/sessions', SessionController.store);
 routes.get('/', (req, res) => res.send('Backend OK'));
 routes.get('/allappointments', AllappointmentController.index);
 routes.get('/quantityappointments', QuantityappointmentController.index);
+routes.get('/providers', ProviderController.index);
+routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
 
 routes.put('/doctors', DoctorController.update);
-
-routes.get('/providers', ProviderController.index);
-routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.get('/appointments', AppointmentController.index);
 routes.post('/appointments', AppointmentController.store);

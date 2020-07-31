@@ -85,11 +85,18 @@ class AvailableController {
             !appointments.find(a => format(a.date, 'HH:mm') === time),
         };
       } catch (error) {
-        return {
-          time: 'Atendimento',
-          value: 'error',
-          avaiable: false,
-        };
+        return (
+          {
+            time: '00:00',
+            value: 'error',
+            avaiable: false,
+          },
+          {
+            time: '00:00',
+            value: 'error',
+            avaiable: false,
+          }
+        );
       }
     });
 
