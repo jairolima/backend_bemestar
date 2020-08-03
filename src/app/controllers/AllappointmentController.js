@@ -17,7 +17,7 @@ class AllappointmentController {
           [Op.gt]: startOfDay(searchDate),
         },
       },
-      attributes: ['date'],
+      attributes: ['date', 'filter'],
       include: [
         {
           model: User,
@@ -34,7 +34,7 @@ class AllappointmentController {
     });
 
     const formate = allappointments.map(appointment => {
-      const { date } = appointment;
+      const { date, filter } = appointment;
       const username = appointment.user.name;
       const password_hash = appointment.user.password_hash;
       const phone = appointment.user.phone;
@@ -46,6 +46,7 @@ class AllappointmentController {
         date: format(date, "d 'de' MMMM HH:mm"),
         password_hash,
         phone,
+        filter,
       };
     });
 
