@@ -32,7 +32,7 @@ class AllappointmentController {
       ],
       order: ['date'],
     });
-
+    // .map to format every single date
     const formate = allappointments.map(appointment => {
       const { date, filter } = appointment;
       const username = appointment.user.name;
