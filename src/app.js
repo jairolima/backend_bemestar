@@ -5,6 +5,7 @@ import path from 'path';
 import cors from 'cors';
 import Youch from 'youch';
 import * as Sentry from '@sentry/node';
+
 import 'express-async-errors';
 
 import routes from './routes';

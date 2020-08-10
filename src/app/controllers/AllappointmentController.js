@@ -17,7 +17,18 @@ class AllappointmentController {
           [Op.gt]: startOfDay(searchDate),
         },
       },
-      attributes: ['date', 'filter'],
+      attributes: [
+        'date',
+        'filter',
+        'id',
+        'price',
+        'health_insurance',
+        'showed_up',
+        'confirmed',
+        'payment_option',
+        'description',
+        'recepcionist',
+      ],
       include: [
         {
           model: User,
@@ -34,65 +45,56 @@ class AllappointmentController {
     });
     // .map to format every single date
     const formate = allappointments.map(appointment => {
-      const { date, filter } = appointment;
+      const {
+        date,
+        filter,
+        id,
+        price,
+        health_insurance,
+        showed_up,
+        confirmed,
+        payment_option,
+        description,
+        recepcionist,
+      } = appointment;
       const username = appointment.user.name;
       const password_hash = appointment.user.password_hash;
       const phone = appointment.user.phone;
       const providername = appointment.provider.name;
 
       return {
-        username,
-        providername,
-        date: format(date, "d 'de' MMMM HH:mm"),
-        password_hash,
-        phone,
-        filter,
+        ID: id,
+        Cliente: username,
+        Prestador: providername,
+        Data: format(date, "d 'de' MMMM HH:mm"),
+        CPF: password_hash,
+        Telefone: phone,
+        Filtro: filter,
+        Preço: price,
+        Plano: health_insurance,
+        Compareceu: showed_up,
+        Confirmou: confirmed,
+        Pagamento: payment_option,
+        Descrição: description,
+        Recepcionista: recepcionist,
       };
     });
 
     const rows = formate;
 
     return res.json({
-      columns: [
-        {
-          label: 'Usuario',
-          field: 'username',
-          sort: 'asc',
-          width: 250,
-        },
-        {
-          label: 'Servico',
-          field: 'providername',
-          sort: 'asc',
-          width: 250,
-        },
-        {
-          label: 'Data',
-          field: 'date',
-          sort: 'asc',
-          width: 320,
-        },
-        {
-          label: 'CPF',
-          field: 'password_hash',
-          sort: 'asc',
-          width: 320,
-        },
-        {
-          label: 'Telefone',
-          field: 'phone',
-          sort: 'asc',
-          width: 320,
-        },
-        {
-          label: 'Filtro',
-          field: 'filter',
-          sort: 'asc',
-          width: 320,
-        },
-      ],
       rows,
     });
+  }
+
+  async update(req, res) {
+    const { id } = req.body;
+
+    const appointment = await Appointment.findByPk(id);
+
+    await appointment.update(req.body);
+
+    return res.json({ message: 'success' });
   }
 }
 

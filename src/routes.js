@@ -36,6 +36,9 @@ routes.put('/doctors', DoctorController.update);
 
 routes.get('/appointments', AppointmentController.index);
 routes.post('/appointments', AppointmentController.store);
+
+routes.put('/allappointments', AllappointmentController.update);
+
 routes.delete('/appointments/:id', AppointmentController.delete);
 
 routes.get('/schedule', ScheduleController.index);
