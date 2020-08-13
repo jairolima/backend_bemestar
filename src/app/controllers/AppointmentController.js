@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import * as Yup from 'yup';
-import { parseISO, isBefore, format, subHours } from 'date-fns';
+import { parseISO, isBefore, format } from 'date-fns';
 // import pt from 'date-fns/locale/pt';
 import User from '../models/User';
 import File from '../models/File';
@@ -116,41 +116,41 @@ class AppointmentController {
     function thePrice() {
       switch (filter) {
         case 'Cardiologista':
-          return 0;
+          return 150;
         case 'Clinico Geral':
-          return 0;
+          return 80;
         case 'Dermatologista':
-          return 0;
+          return 130;
         case 'Endocrinologista':
-          return 0;
+          return 200;
         case 'Fonoaudióloga':
           return 0;
         case 'Gastroenterologista':
-          return 0;
+          return 100;
         case 'Geriatra':
-          return 0;
+          return 150;
         case 'Ginecologista':
           return 0;
         case 'Medicina do trabalho':
-          return 0;
+          return 35;
         case 'Medicina Integ. e Longevidade':
           return 0;
         case 'Ortopedista':
-          return 0;
+          return 100;
         case 'Otorrino':
-          return 0;
+          return 100;
         case 'Pediatra':
-          return 0;
+          return 90;
         case 'Psicóloga':
           return 0;
         case 'Psiquiatra':
           return 0;
         case 'Reumatologista':
-          return 0;
+          return 100;
         case 'Ultrassonografista':
           return 0;
         case 'Urologista':
-          return 0;
+          return 90;
         case 'Holter':
           return 150;
         case 'Ecocardiograma':
@@ -190,47 +190,47 @@ class AppointmentController {
         case 'Raio X de coluna lombar completa':
           return 150;
         case 'Abdomen superior':
-          return 0;
+          return 80;
         case 'Abdomen total':
-          return 0;
+          return 100;
         case 'Cervical/Pescoço':
-          return 0;
+          return 80;
         case 'Doppler de carótidas e vertebrais':
-          return 0;
+          return 180;
         case 'Doppler de membro inferior (Ambos)':
-          return 0;
+          return 350;
         case 'Doppler de membro inferior (Um membro)':
-          return 0;
+          return 180;
         case 'Inguinal bilateral':
-          return 0;
+          return 130;
         case 'Inguinal':
-          return 0;
+          return 80;
         case 'Mamaria':
-          return 0;
+          return 80;
         case 'Morfologica':
-          return 0;
+          return 200;
         case 'Obstétrica':
-          return 0;
+          return 80;
         case 'Obstétrica com doppler':
-          return 0;
+          return 130;
         case 'Obstétrica gemelar com doppler':
-          return 0;
+          return 180;
         case 'Pequenas partes':
-          return 0;
+          return 80;
         case 'Transvaginal com doppler':
-          return 0;
+          return 130;
         case 'Pelvica':
-          return 0;
+          return 80;
         case 'Prostata pelvica':
-          return 0;
+          return 80;
         case 'Tireoide com doppler':
-          return 0;
+          return 110;
         case 'Translucencia nucal':
-          return 0;
+          return 130;
         case 'Transvaginal':
-          return 0;
+          return 80;
         case 'Vias urinarias':
-          return 0;
+          return 80;
         default:
           break;
       }
@@ -284,13 +284,13 @@ class AppointmentController {
       });
     }
 
-    const dateWithSub = subHours(appointment.date, 2);
+    // const dateWithSub = subHours(appointment.date, 2);
 
-    if (isBefore(dateWithSub, new Date())) {
-      return res.status(401).json({
-        error: 'You can only cancel appointments 2 hours in advance',
-      });
-    }
+    // if (isBefore(dateWithSub, new Date())) {
+    //   return res.status(401).json({
+    //     error: 'You can only cancel appointments 2 hours in advance',
+    //   });
+    // }
 
     appointment.canceled_at = new Date();
 
