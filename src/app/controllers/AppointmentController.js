@@ -123,14 +123,12 @@ class AppointmentController {
           return 130;
         case 'Endocrinologista':
           return 200;
-        case 'Fonoaudióloga':
-          return 0;
         case 'Gastroenterologista':
           return 100;
         case 'Geriatra':
           return 150;
         case 'Ginecologista':
-          return 0;
+          return 100;
         case 'Medicina do trabalho':
           return 35;
         case 'Medicina Integ. e Longevidade':
@@ -142,13 +140,11 @@ class AppointmentController {
         case 'Pediatra':
           return 90;
         case 'Psicóloga':
-          return 0;
+          return 80;
         case 'Psiquiatra':
-          return 0;
+          return 150;
         case 'Reumatologista':
           return 100;
-        case 'Ultrassonografista':
-          return 0;
         case 'Urologista':
           return 90;
         case 'Holter':
@@ -215,6 +211,8 @@ class AppointmentController {
           return 130;
         case 'Obstétrica gemelar com doppler':
           return 180;
+        case 'Parede abdominal':
+          return 80;
         case 'Pequenas partes':
           return 80;
         case 'Transvaginal com doppler':
