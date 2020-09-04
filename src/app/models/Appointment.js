@@ -15,6 +15,8 @@ class Appointment extends Model {
         description: Sequelize.STRING,
         payment_option: Sequelize.STRING,
         recepcionist: Sequelize.STRING,
+        commission: Sequelize.STRING,
+        discount: Sequelize.STRING,
         past: {
           type: Sequelize.VIRTUAL,
           get() {

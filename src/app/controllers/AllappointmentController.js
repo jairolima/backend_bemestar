@@ -1,5 +1,6 @@
 /* eslint-disable prefer-destructuring */
 import { startOfDay, format } from 'date-fns';
+import pt from 'date-fns/locale/pt-BR';
 import { Op } from 'sequelize';
 
 import User from '../models/User';
@@ -28,6 +29,8 @@ class AllappointmentController {
         'payment_option',
         'description',
         'recepcionist',
+        'discount',
+        'commission',
       ],
       include: [
         {
@@ -56,6 +59,8 @@ class AllappointmentController {
         payment_option,
         description,
         recepcionist,
+        discount,
+        commission,
       } = appointment;
       const username = appointment.user.name;
       const password_hash = appointment.user.password_hash;
@@ -66,7 +71,9 @@ class AllappointmentController {
         ID: id,
         Cliente: username,
         Prestador: providername,
-        Data: format(date, "d 'de' MMMM HH:mm"),
+        Data: format(date, "'dia' dd 'de' MMMM', às ' HH:mm'h'", {
+          locale: pt,
+        }),
         CPF: password_hash,
         Telefone: phone,
         Filtro: filter,
@@ -77,6 +84,8 @@ class AllappointmentController {
         Pagamento: payment_option,
         Descrição: description,
         Recepcionista: recepcionist,
+        Desconto: discount,
+        Comissão: commission,
       };
     });
 
@@ -92,7 +101,10 @@ class AllappointmentController {
 
     const appointment = await Appointment.findByPk(id);
 
-    await appointment.update(req.body);
+    await appointment.update({
+      recepcionist: req.body.recepcionist,
+      payment_option: req.body.payment_option,
+    });
 
     return res.json({ message: 'success' });
   }

@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import * as Yup from 'yup';
 import { parseISO, isBefore, format } from 'date-fns';
-// import pt from 'date-fns/locale/pt';
+import pt from 'date-fns/locale/pt-BR';
 import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointment';
@@ -46,7 +46,9 @@ class AppointmentController {
         cancelable,
         provider,
         name,
-        date: format(date, "d 'de' MMMM HH:mm"),
+        date: format(date, "'dia' dd 'de' MMMM', às ' HH:mm'h'", {
+          locale: pt,
+        }),
       };
     });
 
@@ -234,12 +236,134 @@ class AppointmentController {
       }
     }
 
+    function theCommission() {
+      switch (filter) {
+        case 'Cardiologista':
+          return 50;
+        case 'Clinico Geral':
+          return 50;
+        case 'Dermatologista':
+          return 60;
+        case 'Endocrinologista':
+          return 50;
+        case 'Gastroenterologista':
+          return 50;
+        case 'Geriatra':
+          return 50;
+        case 'Ginecologista':
+          return 50;
+        case 'Medicina do trabalho':
+          return '57,14285714';
+        case 'Medicina Integ. e Longevidade':
+          return 50;
+        case 'Ortopedista':
+          return 50;
+        case 'Otorrino':
+          return 50;
+        case 'Pediatra':
+          return 50;
+        case 'Psicóloga':
+          return 50;
+        case 'Psiquiatra':
+          return 60;
+        case 'Reumatologista':
+          return 50;
+        case 'Urologista':
+          return 50;
+        case 'Holter':
+          return 50;
+        case 'Ecocardiograma':
+          return 50;
+        case 'Eletrocardiograma':
+          return 0;
+        case 'Peeling':
+          return 50;
+        case 'Blefaroplastia':
+          return 50;
+        case 'Retirada cisto':
+          return 50;
+        case 'Retirada lipoma':
+          return 50;
+        case 'Retirada sinais':
+          return 50;
+        case 'Audiometria tonal':
+          return 0;
+        case 'Audiometria vocal':
+          return 0;
+        case 'Avaliação e terapia de linguagem oral e escrita':
+          return 0;
+        case 'Terapia de voz':
+          return 0;
+        case 'Motricidade orofacial e disfagia':
+          return 50;
+        case 'Colposcopia':
+          return 50;
+        case 'Citológico':
+          return 50;
+        case 'Biopsia colo útero':
+          return 50;
+        case 'Lavagem cada ouvido':
+          return 50;
+        case 'Raio X geral':
+          return 0;
+        case 'Raio X de coluna lombar completa':
+          return 0;
+        case 'Abdomen superior':
+          return 50;
+        case 'Abdomen total':
+          return 50;
+        case 'Cervical/Pescoço':
+          return 50;
+        case 'Doppler de carótidas e vertebrais':
+          return 50;
+        case 'Doppler de membro inferior (Ambos)':
+          return 50;
+        case 'Doppler de membro inferior (Um membro)':
+          return 50;
+        case 'Inguinal bilateral':
+          return 50;
+        case 'Inguinal':
+          return 50;
+        case 'Mamaria':
+          return 50;
+        case 'Morfologica':
+          return 50;
+        case 'Obstétrica':
+          return 50;
+        case 'Obstétrica com doppler':
+          return 50;
+        case 'Obstétrica gemelar com doppler':
+          return 50;
+        case 'Parede abdominal':
+          return 50;
+        case 'Pequenas partes':
+          return 50;
+        case 'Transvaginal com doppler':
+          return 50;
+        case 'Pelvica':
+          return 50;
+        case 'Prostata pelvica':
+          return 50;
+        case 'Tireoide com doppler':
+          return 50;
+        case 'Translucencia nucal':
+          return 50;
+        case 'Transvaginal':
+          return 50;
+        case 'Vias urinarias':
+          return 50;
+        default:
+          break;
+      }
+    }
+
     const appointment = await Appointment.create({
       user_id: req.userId,
       provider_id,
       date: hourStart,
       filter,
       price: thePrice(),
+      commission: theCommission(),
     });
 
     /**
