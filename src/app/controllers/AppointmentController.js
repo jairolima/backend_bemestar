@@ -135,6 +135,8 @@ class AppointmentController {
           return 35;
         case 'Medicina Integ. e Longevidade':
           return 0;
+        case 'Nutricionista':
+          return 140;
         case 'Ortopedista':
           return 100;
         case 'Otorrino':
@@ -256,6 +258,8 @@ class AppointmentController {
           return '57,14285714';
         case 'Medicina Integ. e Longevidade':
           return 50;
+        case 'Nutricionista':
+          return 60;
         case 'Ortopedista':
           return 50;
         case 'Otorrino':
