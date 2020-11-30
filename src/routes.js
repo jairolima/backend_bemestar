@@ -19,6 +19,10 @@ import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 const upload = multer(multerConfig);
+const cors = require('cors');
+
+// Allow all applications front end to aceess, you should put website cors({origin: 'http://example.com'}) in prod
+app.use(cors({origin: 'https://agenda.policlinicabemestar.com'}))
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
