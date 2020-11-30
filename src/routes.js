@@ -22,7 +22,7 @@ const upload = multer(multerConfig);
 const cors = require('cors');
 
 // Allow all applications front end to aceess, you should put website cors({origin: 'http://example.com'}) in prod
-app.use(cors({origin: 'https://agenda.policlinicabemestar.com'}))
+app.use(cors({origin: 'elegant-goodall-26ef45.netlify.com'}))
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
