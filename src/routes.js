@@ -13,6 +13,7 @@ import AvailableController from './app/controllers/AvailableController';
 import AllappointmentController from './app/controllers/AllappointmentController';
 import QuantityappointmentController from './app/controllers/QuantityappointmentController';
 import DoctorController from './app/controllers/DoctorController';
+import WhatsappConfirmationController from './app/controllers/WhatsappConfirmationController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -21,6 +22,7 @@ const upload = multer(multerConfig);
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
+routes.put('/confirmation', WhatsappConfirmationController.update);
 
 routes.get('/', (req, res) => res.send('Backend OK'));
 routes.get('/allappointments', AllappointmentController.index);
