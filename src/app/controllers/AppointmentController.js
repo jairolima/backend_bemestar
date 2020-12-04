@@ -388,6 +388,10 @@ class AppointmentController {
       `https://api.dr.help/message?number=5583988736747&message=${user.name} agendou ${filter} para as ${hourStart.getHours()}:${hourStart.getMinutes()}&token=${process.env.ZAP_TOKEN}`
     );
 
+    axios.get(
+      `https://api.dr.help/message?number=5583991389448&message=${user.name} agendou ${filter} para as ${hourStart.getHours()}:${hourStart.getMinutes()}&token=${process.env.ZAP_TOKEN}`
+    );
+
     /**
      * Notify appointment provider
      */

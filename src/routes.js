@@ -36,6 +36,10 @@ cron.schedule("0 */6 * * *", () => {
       `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado em 6 horas e repetirá (de 6 em 6 horas) até ser desativado...&token=${process.env.ZAP_TOKEN}`
     );
 
+    axios.get(
+      `https://api.dr.help/message?number=558391389448&message=Teste CRON, só será executado em 6 horas e repetirá (de 6 em 6 horas) até ser desativado...&token=${process.env.ZAP_TOKEN}`
+    );
+
 });
 
 
