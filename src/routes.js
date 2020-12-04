@@ -24,7 +24,7 @@ const cors = require('cors');
 const cron = require("node-cron");
 
 const corsOptions = {
-  origin: ['https://agenda.policlinicabemestar.com', 'http://agenda.policlinicabemestar.com'],
+  origin: [],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
@@ -33,6 +33,7 @@ cron.schedule("0 */6 * * *", () => {
     // VERIFICAR SE O SITE ESTÁ ONLINE
     // CASO NÃO ESTEJA, PODEMOS ENVIAR UM E-MAIL INFORMANDO
     console.log("Só será executado em uma hora e repetirá (de 1 em 1 hora) até ser desativado...");
+
 });
 
 
