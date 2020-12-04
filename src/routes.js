@@ -15,41 +15,53 @@ import QuantityappointmentController from './app/controllers/Quantityappointment
 import DoctorController from './app/controllers/DoctorController';
 import WhatsappConfirmationController from './app/controllers/WhatsappConfirmationController';
 
+
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 const upload = multer(multerConfig);
-// const cors = require('cors');
+const cors = require('cors');
+const cron = require("node-cron");
 
-// Allow all applications front end to aceess, you should put website cors({origin: 'http://example.com'}) in prod
-//app.use(cors({origin: 'elegant-goodall-26ef45.netlify.com'}))
+const corsOptions = {
+  origin: ['https://agenda.policlinicabemestar.com', 'http://agenda.policlinicabemestar.com'],
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
-routes.post('/users', UserController.store);
-routes.post('/sessions', SessionController.store);
+
+cron.schedule("0 */6 * * *", () => {
+    // VERIFICAR SE O SITE ESTÁ ONLINE
+    // CASO NÃO ESTEJA, PODEMOS ENVIAR UM E-MAIL INFORMANDO
+    console.log("Só será executado em uma hora e repetirá (de 1 em 1 hora) até ser desativado...");
+});
+
+
+routes.post('/users', cors(corsOptions), UserController.store);
+routes.post('/sessions', cors(corsOptions), SessionController.store);
 routes.put('/confirmation', WhatsappConfirmationController.update);
 
 routes.get('/', (req, res) => res.send('Backend OK'));
-routes.get('/allappointments', AllappointmentController.index);
-routes.get('/quantityappointments', QuantityappointmentController.index);
-routes.get('/providers', ProviderController.index);
-routes.get('/providers/:providerId/available', AvailableController.index);
+routes.get('/allappointments', cors(corsOptions), AllappointmentController.index);
+routes.get('/quantityappointments', cors(corsOptions), QuantityappointmentController.index);
+routes.get('/providers', cors(corsOptions), ProviderController.index);
+routes.get('/providers/:providerId/available', cors(corsOptions), AvailableController.index);
 
 routes.use(authMiddleware);
 
-routes.put('/users', UserController.update);
-routes.put('/doctors', DoctorController.update);
+routes.put('/users', cors(corsOptions), UserController.update);
+routes.put('/doctors', cors(corsOptions), DoctorController.update);
 
-routes.get('/appointments', AppointmentController.index);
-routes.post('/appointments', AppointmentController.store);
+routes.get('/appointments', cors(corsOptions), AppointmentController.index);
+routes.post('/appointments', cors(corsOptions), AppointmentController.store);
 
-routes.put('/allappointments', AllappointmentController.update);
+routes.put('/allappointments', cors(corsOptions), AllappointmentController.update);
 
-routes.delete('/appointments/:id', AppointmentController.delete);
+routes.delete('/appointments/:id', cors(corsOptions), AppointmentController.delete);
 
-routes.get('/schedule', ScheduleController.index);
+routes.get('/schedule', cors(corsOptions), ScheduleController.index);
 
-routes.get('/notifications', NotificationController.index);
-routes.put('/notifications/:id', NotificationController.update);
+routes.get('/notifications', cors(corsOptions), NotificationController.index);
+routes.put('/notifications/:id', cors(corsOptions), NotificationController.update);
 
 routes.post('/files', upload.single('file'), FileController.store);
 

@@ -5,6 +5,7 @@ import pt from 'date-fns/locale/pt-BR';
 import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointment';
+import axios from 'axios';
 // import Notification from '../schemas/Notification';
 // import Doctor from '../models/Doctor';
 
@@ -369,6 +370,22 @@ class AppointmentController {
       price: thePrice(),
       commission: theCommission(),
     });
+
+
+     /**
+     * Notify appointment user whatsapp
+     */
+    const user = await User.findByPk(req.userId);
+
+    // axios.get(
+    //   `https://api.dr.help/message?number=55${
+    //     user.phone
+    //   }&message=Voce agendou ${filter} para as ${hourStart.getHours()}:${hourStart.getMinutes()}&token=${process.env.ZAP_TOKEN}`
+    // );
+
+    axios.get(
+      `https://api.dr.help/message?number=5583988736747&message=${user.name} agendou ${filter} para as ${hourStart.getHours()}:${hourStart.getMinutes()}&token=${process.env.ZAP_TOKEN}`
+    );
 
     /**
      * Notify appointment provider
