@@ -29,15 +29,15 @@ const cron = require("node-cron");
 // }
 
 
-cron.schedule("0 */6 * * *", () => {
+cron.schedule("0 */1 * * *", () => {
     // VERIFICAR SE O SITE ESTÁ ONLINE
     // CASO NÃO ESTEJA, PODEMOS ENVIAR UM E-MAIL INFORMANDO
     axios.get(
-      `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado em 6 horas e repetirá (de 6 em 6 horas) até ser desativado...&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado em 1 hora e repetirá (de 1 em 1 hora) até ser desativado...&token=${process.env.ZAP_TOKEN}`
     );
 
     axios.get(
-      `https://api.dr.help/message?number=558391389448&message=Teste CRON, só será executado em 6 horas e repetirá (de 6 em 6 horas) até ser desativado...&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=558391389448&message=Teste CRON, só será executado em 1 hora e repetirá (de 1 em 1 hora) até ser desativado...&token=${process.env.ZAP_TOKEN}`
     );
 
 });
