@@ -23,11 +23,12 @@ const upload = multer(multerConfig);
 const cors = require('cors');
 const cron = require("node-cron");
 
-const corsOptions = {
-  origin: [],
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// const corsOptions = {
+//   origin: [],
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
+app.use(cors())
 
 cron.schedule("0 */6 * * *", () => {
     // VERIFICAR SE O SITE ESTÁ ONLINE
