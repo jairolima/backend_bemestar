@@ -385,12 +385,12 @@ class AppointmentController {
     // );
 
     axios.get(
-      `https://api.dr.help/message?number=5583988736747&message=${user.name} agendou ${filter} para as ${hourStart.getHours()}:${hourStart.getMinutes()}&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, você acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()} no dia ${hourStart.getDate()}/${hourStart.getMonth()}&token=${process.env.ZAP_TOKEN}`
     );
 
-    axios.get(
-      `https://api.dr.help/message?number=5583991389448&message=${user.name} agendou ${filter} para as ${hourStart.getHours()}:${hourStart.getMinutes()}&token=${process.env.ZAP_TOKEN}`
-    );
+    // axios.get(
+    //   `https://api.dr.help/message?number=5583991389448&message=${user.name} agendou ${filter} para as ${hourStart.getHours()}:${hourStart.getMinutes()}&token=${process.env.ZAP_TOKEN}`
+    // );
 
     /**
      * Notify appointment provider
