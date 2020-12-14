@@ -377,6 +377,7 @@ class AppointmentController {
      * Notify appointment user whatsapp
      */
     const user = await User.findByPk(req.userId);
+    const doctor = await User.findByPk(req.body.provider_id);
 
     // axios.get(
     //   `https://api.dr.help/message?number=55${
@@ -385,7 +386,7 @@ class AppointmentController {
     // );
 
     axios.get(
-      `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, você acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1}&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, você acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
     );
 
     // axios.get(
