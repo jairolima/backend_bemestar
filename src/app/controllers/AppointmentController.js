@@ -262,6 +262,8 @@ class AppointmentController {
           return 50;
         case 'Nutricionista':
           return 60;
+        case 'Nutrologista':
+          return 60;
         case 'Ortopedista':
           return 50;
         case 'Otorrino':
@@ -373,9 +375,9 @@ class AppointmentController {
     });
 
 
-     /**
-     * Notify appointment user whatsapp
-     */
+    /**
+    * Notify appointment user whatsapp
+    */
     const user = await User.findByPk(req.userId);
     const doctor = await User.findByPk(req.body.provider_id);
 
