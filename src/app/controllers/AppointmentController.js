@@ -187,6 +187,10 @@ class AppointmentController {
           return 250;
         case 'Lavagem cada ouvido':
           return 30;
+        case 'Videolaringoscopia com filmagem e laudo':
+          return 220;
+        case 'Videolaringoscopia com laudo':
+          return 150;
         case 'Raio X geral':
           return 60;
         case 'Raio X de coluna lombar completa':
@@ -312,6 +316,10 @@ class AppointmentController {
           return 50;
         case 'Lavagem cada ouvido':
           return 50;
+        case 'Videolaringoscopia com filmagem e laudo':
+          return 70;
+        case 'Videolaringoscopia com laudo':
+          return 70;
         case 'Raio X geral':
           return 0;
         case 'Raio X de coluna lombar completa':
