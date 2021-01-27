@@ -139,6 +139,8 @@ class AppointmentController {
           return 0;
         case 'Nutricionista':
           return 140;
+        case 'Nutrólogo':
+          return 250;
         case 'Ortopedista':
           return 100;
         case 'Otorrino':
@@ -266,7 +268,7 @@ class AppointmentController {
           return 50;
         case 'Nutricionista':
           return 60;
-        case 'Nutrologista':
+        case 'Nutrólogo':
           return 60;
         case 'Ortopedista':
           return 50;
