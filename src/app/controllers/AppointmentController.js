@@ -398,16 +398,16 @@ class AppointmentController {
     // );
 
     axios.get(
-      `https://api.dr.help/message?number=55${user.phone}&message=Este é um lembrete, você acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=55${user.phone}&message=Este é um lembrete, ${user.name} acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
     );
     axios.get(
-      `https://api.dr.help/message?number=558391389448&message=Este é um lembrete, você acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=558391389448&message=Este é um lembrete, ${user.name} acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
     );
     axios.get(
-      `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, você acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, ${user.name} acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
     );
     axios.get(
-      `https://api.dr.help/message?number=5583986180305&message=Este é um lembrete, você acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
+      `https://api.dr.help/message?number=5583986180305&message=Este é um lembrete, ${user.name} acabou de agendar ${filter} para às ${hourStart.getHours()}:${hourStart.getMinutes()}h no dia ${hourStart.getDate()}/${hourStart.getMonth() + 1} com ${doctor.name}&token=${process.env.ZAP_TOKEN}`
     );
 
     // axios.get(
