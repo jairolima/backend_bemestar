@@ -147,7 +147,7 @@ class AppointmentController {
           return 100;
         case 'Pediatra':
           return 90;
-        case 'Psicóloga':
+        case 'Psicologia':
           return 80;
         case 'Psiquiatra':
           return 150;
@@ -276,7 +276,7 @@ class AppointmentController {
           return 50;
         case 'Pediatra':
           return 50;
-        case 'Psicóloga':
+        case 'Psicologia':
           return 50;
         case 'Psiquiatra':
           return 60;
