@@ -203,6 +203,8 @@ class AppointmentController {
           return 100;
         case 'Cervical/Pescoço':
           return 80;
+        case 'Cervical com Doppler':
+          return 130;
         case 'Doppler de carótidas e vertebrais':
           return 180;
         case 'Doppler de membro inferior (Ambos)':
@@ -331,6 +333,8 @@ class AppointmentController {
         case 'Abdomen total':
           return 50;
         case 'Cervical/Pescoço':
+          return 50;
+        case 'Cervical com Doppler':
           return 50;
         case 'Doppler de carótidas e vertebrais':
           return 50;

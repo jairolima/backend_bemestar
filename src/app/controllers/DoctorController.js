@@ -7,7 +7,7 @@ class DoctorController {
   async update(req, res) {
     const schema = Yup.object().shape({
       specialty: Yup.string(),
-      crm: Yup.string().min(6),
+      crm: Yup.string().min(3),
       user_id: Yup.string(),
       mon: Yup.string(),
       tue: Yup.string(),
