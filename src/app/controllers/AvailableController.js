@@ -22,6 +22,7 @@ class AvailableController {
     }
 
     const searchDate = Number(date);
+    console.log(searchDate);
 
     // consulta pra verificar se o horario ta disponivel
     const appointments = await Appointment.findAll({
@@ -35,6 +36,7 @@ class AvailableController {
     });
 
     const weekday = new Date(searchDate).getDay();
+    console.log(weekday);
 
     // return res.status(200).json({ message: weekday });
 
@@ -76,6 +78,14 @@ class AvailableController {
         0
       );
 
+
+      // const deleteDay = ['feb', 'nov']
+
+
+
+
+      // Lets check if the day is unavailable or not
+      // if (deleteDay.includes(searchDate) === false) {
       try {
         return {
           time,
@@ -98,6 +108,21 @@ class AvailableController {
           }
         );
       }
+      // } else {
+      //   return (
+      //     {
+      //       time: '00:00',
+      //       value: 'error',
+      //       avaiable: false,
+      //     },
+      //     {
+      //       time: '00:00',
+      //       value: 'error',
+      //       avaiable: false,
+      //     }
+      //   );
+      // }
+
     });
 
     return res.json(avaiable);
