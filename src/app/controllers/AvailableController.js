@@ -22,7 +22,6 @@ class AvailableController {
     }
 
     const searchDate = Number(date);
-    console.log(searchDate);
 
     // consulta pra verificar se o horario ta disponivel
     const appointments = await Appointment.findAll({
@@ -36,7 +35,6 @@ class AvailableController {
     });
 
     const weekday = new Date(searchDate).getDay();
-    console.log(weekday);
 
     // return res.status(200).json({ message: weekday });
 
