@@ -14,6 +14,7 @@ import AllappointmentController from './app/controllers/AllappointmentController
 import QuantityappointmentController from './app/controllers/QuantityappointmentController';
 import DoctorController from './app/controllers/DoctorController';
 import WhatsappConfirmationController from './app/controllers/WhatsappConfirmationController';
+import FilterController from './app/controllers/FilterController';
 
 
 import authMiddleware from './app/middlewares/auth';
@@ -29,19 +30,24 @@ const cron = require("node-cron");
 // }
 
 
-cron.schedule("0 */1 * * *", () => {
-    // VERIFICAR SE O SITE ESTÁ ONLINE
-    // CASO NÃO ESTEJA, PODEMOS ENVIAR UM E-MAIL INFORMANDO
-    axios.get(
-      `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado em 1 hora e repetirá (de 1 em 1 hora) até ser desativado...&token=${process.env.ZAP_TOKEN}`
-    );
 
-    axios.get(
-      `https://api.dr.help/message?number=558391389448&message=Teste CRON, só será executado em 1 hora e repetirá (de 1 em 1 hora) até ser desativado...&token=${process.env.ZAP_TOKEN}`
-    );
-
+cron.schedule('0 8 * * *', () => {
+  console.log('Running a job at 01:00 at America/Sao_Paulo timezone');
+  axios.get(
+    `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado às 08:00 horas e repetirá todo dia...&token=${process.env.ZAP_TOKEN}`
+  );
+  axios.get(
+    `https://api.dr.help/message?number=558391389448&message=Teste CRON, só será executado às 08:00 horas e repetirá todo dia...&token=${process.env.ZAP_TOKEN}`
+  );
+}, {
+  scheduled: true,
+  timezone: "America/Sao_Paulo"
 });
 
+routes.post('/filters', FilterController.store);
+routes.get('/filters', FilterController.index);
+routes.put('/filters/:id', FilterController.update);
+routes.delete('/filters/:id', FilterController.delete);
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
