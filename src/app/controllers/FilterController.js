@@ -34,6 +34,7 @@ class FilterController {
 
   async update(req, res) {
 
+    //run env
     if (req.body.token != process.env.GENERAL_TOKEN) {
       return res.status(400).json({ error: 'Invalid env token' });
     }
