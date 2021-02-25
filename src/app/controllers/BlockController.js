@@ -17,7 +17,7 @@ class BlockController {
   async store(req, res) {
     const schema = Yup.object().shape({
       days: Yup.string().required().min(1),
-      doctor_ids: Yup.string().required().min(1)
+      doctor_ids: Yup.string()
     });
 
     if (req.body.token != process.env.GENERAL_TOKEN) {
