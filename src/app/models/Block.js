@@ -4,10 +4,12 @@ class Block extends Model {
   static init(sequelize) {
     super.init(
       {
-        blockdays: Sequelize.STRING,
+        days: Sequelize.STRING,
+        doctor_ids: Sequelize.STRING,
       },
       {
         sequelize,
+        tableName: 'blockdays'
       }
     );
 

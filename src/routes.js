@@ -15,6 +15,7 @@ import QuantityappointmentController from './app/controllers/Quantityappointment
 import DoctorController from './app/controllers/DoctorController';
 import WhatsappConfirmationController from './app/controllers/WhatsappConfirmationController';
 import FilterController from './app/controllers/FilterController';
+import BlockController from './app/controllers/BlockController';
 
 
 import authMiddleware from './app/middlewares/auth';
@@ -48,6 +49,11 @@ routes.post('/filters', FilterController.store);
 routes.get('/filters', FilterController.index);
 routes.put('/filters/:id', FilterController.update);
 routes.delete('/filters/:id', FilterController.delete);
+
+routes.get('/blockdays', BlockController.index);
+routes.post('/blockdays', BlockController.store);
+routes.put('/blockdays/:id', BlockController.update);
+routes.delete('/blockdays/:id', BlockController.delete);
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);

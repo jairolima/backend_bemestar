@@ -7,6 +7,7 @@ class Filter extends Model {
         filter: Sequelize.STRING,
         price: Sequelize.STRING,
         commission: Sequelize.STRING,
+        prerequisite: Sequelize.STRING,
       },
       {
         sequelize,

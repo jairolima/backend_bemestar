@@ -8,7 +8,8 @@ class FilterController {
     const schema = Yup.object().shape({
       filter: Yup.string().required().min(1),
       price: Yup.string().required().min(1),
-      commission: Yup.string().required().min(1)
+      commission: Yup.string().required().min(1),
+      prerequisite: Yup.string().required().min(1)
     });
 
     if (req.body.token != process.env.GENERAL_TOKEN) {
@@ -22,13 +23,15 @@ class FilterController {
     const {
       filter,
       price,
-      commission
+      commission,
+      prerequisite
     } = await Filter.create(req.body);
 
     return res.json({
       filter,
       price,
-      commission
+      commission,
+      prerequisite
     });
   }
 
@@ -48,13 +51,15 @@ class FilterController {
     await filter.update({
       filter: req.body.filter,
       price: req.body.price,
-      commission: req.body.commission
+      commission: req.body.commission,
+      prerequisite: req.body.prerequisite
     });
 
     return res.json({
       filter: req.body.filter,
       price: req.body.price,
-      commission: req.body.commission
+      commission: req.body.commission,
+      prerequisite: req.body.prerequisite
     });
   }
 
@@ -78,7 +83,7 @@ class FilterController {
   async index(req, res) {
 
     const filters = await Filter.findAll({
-      attributes: ['id', 'filter', 'price', 'commission'],
+      attributes: ['id', 'filter', 'price', 'commission', 'prerequisite'],
       order: ['createdAt']
     });
 
