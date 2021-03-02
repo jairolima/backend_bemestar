@@ -65,7 +65,7 @@ class BlockController {
 
   async delete(req, res) {
 
-    if (req.body.token != process.env.GENERAL_TOKEN) {
+    if (req.params.token != process.env.GENERAL_TOKEN) {
       return res.status(400).json({ error: 'Invalid env token' });
     }
 

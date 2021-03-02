@@ -12,6 +12,8 @@ import {
 import { Op } from 'sequelize';
 import Appointment from '../models/Appointment';
 import Doctor from '../models/Doctor';
+import Block from '../models/Block';
+import { format } from 'date-fns'
 
 class AvailableController {
   async index(req, res) {
@@ -69,6 +71,7 @@ class AvailableController {
     // converting string from data base to an array
     const array = Array.from(myweekday().split(','));
 
+
     const avaiable = array.map(time => {
       const [hour, minute] = time.split(':');
       const value = setSeconds(
@@ -76,15 +79,8 @@ class AvailableController {
         0
       );
 
-
-      // const deleteDay = ['feb', 'nov']
-
-
-
-
-      // Lets check if the day is unavailable or not
-      // if (deleteDay.includes(searchDate) === false) {
       try {
+
         return {
           time,
           value: format(value, "yyyy-MM-dd'T'HH:mm:ssxxx"),
@@ -92,6 +88,7 @@ class AvailableController {
             isAfter(value, new Date()) &&
             !appointments.find(a => format(a.date, 'HH:mm') === time),
         };
+
       } catch (error) {
         return (
           {
@@ -106,24 +103,37 @@ class AvailableController {
           }
         );
       }
-      // } else {
-      //   return (
-      //     {
-      //       time: '00:00',
-      //       value: 'error',
-      //       avaiable: false,
-      //     },
-      //     {
-      //       time: '00:00',
-      //       value: 'error',
-      //       avaiable: false,
-      //     }
-      //   );
-      // }
 
     });
 
-    return res.json(avaiable);
+
+    const block = await Block.findOne({ where: { days: format(new Date(searchDate), 'dd/MM/yyyy') } });
+    if (block === null) {
+      console.log('Not found!');
+      return res.json(avaiable);
+    } else {
+      console.log(block instanceof Block); // true
+      console.log(block.days); // 'My day'
+
+
+      if (block.doctor_ids.indexOf(req.params.providerId) > -1) {
+        const avaiable = [
+          {
+            time: '00:00',
+            value: 'error',
+            avaiable: false,
+          }
+        ]
+        return res.json(avaiable);
+
+      } else {
+        return res.json(avaiable);
+      }
+
+    }
+
+
+
   }
 }
 

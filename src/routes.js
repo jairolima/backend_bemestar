@@ -3,9 +3,11 @@ import multer from 'multer';
 import multerConfig from './config/multer';
 
 import UserController from './app/controllers/UserController';
+import NewAllUsersController from './app/controllers/NewAllUsersController';
 import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 import ProviderController from './app/controllers/ProviderController';
+import NewProviderController from './app/controllers/NewProviderController';
 import AppointmentController from './app/controllers/AppointmentController';
 import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
@@ -16,6 +18,7 @@ import DoctorController from './app/controllers/DoctorController';
 import WhatsappConfirmationController from './app/controllers/WhatsappConfirmationController';
 import FilterController from './app/controllers/FilterController';
 import BlockController from './app/controllers/BlockController';
+import axios from 'axios';
 
 
 import authMiddleware from './app/middlewares/auth';
@@ -23,7 +26,7 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 const upload = multer(multerConfig);
 // const cors = require('cors');
-const cron = require("node-cron");
+var cron = require("node-cron");
 
 // const corsOptions = {
 //   origin: [],
@@ -32,8 +35,8 @@ const cron = require("node-cron");
 
 
 
-cron.schedule('0 8 * * *', () => {
-  console.log('Running a job at 01:00 at America/Sao_Paulo timezone');
+var task = cron.schedule('0 8 * * *', () => {
+  console.log('Running a job at 08:00 at America/Sao_Paulo timezone');
   axios.get(
     `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado às 08:00 horas e repetirá todo dia...&token=${process.env.ZAP_TOKEN}`
   );
@@ -45,15 +48,23 @@ cron.schedule('0 8 * * *', () => {
   timezone: "America/Sao_Paulo"
 });
 
+task.start();
+
+
+
+routes.get('/newallusers/:token', NewAllUsersController.index);
+
+routes.get('/blockdays', BlockController.index);
+routes.post('/blockdays', BlockController.store);
+routes.put('/blockdays/:id', BlockController.update);
+routes.delete('/blockdays/:id/:token', BlockController.delete);
+
 routes.post('/filters', FilterController.store);
 routes.get('/filters', FilterController.index);
 routes.put('/filters/:id', FilterController.update);
 routes.delete('/filters/:id', FilterController.delete);
 
-routes.get('/blockdays', BlockController.index);
-routes.post('/blockdays', BlockController.store);
-routes.put('/blockdays/:id', BlockController.update);
-routes.delete('/blockdays/:id', BlockController.delete);
+routes.get('/newproviders', NewProviderController.index);
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
