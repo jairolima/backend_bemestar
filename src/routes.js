@@ -13,6 +13,7 @@ import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
 import AvailableController from './app/controllers/AvailableController';
 import AllappointmentController from './app/controllers/AllappointmentController';
+import NewDrAppointmentController from './app/controllers/NewDrAppointmentController';
 import QuantityappointmentController from './app/controllers/QuantityappointmentController';
 import DoctorController from './app/controllers/DoctorController';
 import WhatsappConfirmationController from './app/controllers/WhatsappConfirmationController';
@@ -50,6 +51,52 @@ var task = cron.schedule('0 8 * * *', () => {
 
 task.start();
 
+var doctorTask = cron.schedule('*/2 * * * *', () => {
+  console.log('Running a job at 2min at America/Sao_Paulo timezone');
+
+
+  async function sendDr() {
+    await axios.get(`https://api.policlinicabemestar.com/drappointments/${process.env.GENERAL_TOKEN}/507`)
+      .then(function (response) {
+        // handle success
+        console.log(response);
+
+        const appointments = response.data
+
+        if (appointments === '') {
+          console.log('sendDr appointments empty')
+        } else {
+          axios.get(
+            `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
+          )
+          appointments.map(appointment =>
+            axios.get(
+              `https://api.dr.help/message?number=5583988736747&message=${appointments.cliente}, ${appointments.data}, ${appointments.filtro}&token=${process.env.ZAP_TOKEN}`
+            )
+          )
+        }
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  }
+
+  sendDr()
+
+
+
+}, {
+  scheduled: true,
+  timezone: "America/Sao_Paulo"
+});
+
+doctorTask.start();
+
 
 
 routes.get('/newallusers/:token', NewAllUsersController.index);
@@ -65,6 +112,8 @@ routes.put('/filters/:id', FilterController.update);
 routes.delete('/filters/:id', FilterController.delete);
 
 routes.get('/newproviders', NewProviderController.index);
+
+routes.get('/drappointments/:token/:id', NewDrAppointmentController.index);
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
