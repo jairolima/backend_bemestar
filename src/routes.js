@@ -92,7 +92,7 @@ var doctorTask = cron.schedule('*/2 * * * *', () => {
       });
   }
 
-  sendDr()
+  // sendDr()
 
 
 
