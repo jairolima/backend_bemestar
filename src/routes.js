@@ -71,12 +71,15 @@ var doctorTask = cron.schedule('*/2 * * * *', () => {
             `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
           )
 
-          appointments.map(appointment => {
-            return axios.get(
-              `https://api.dr.help/message?number=5583988736747&message=${appointments.cliente}, ${appointments.data}, ${appointments.filtro}&token=${process.env.ZAP_TOKEN}`
+          {
+            appointments.map(appointment => {
+              return axios.get(
+                `https://api.dr.help/message?number=5583988736747&message=${appointments.cliente}, ${appointments.data}, ${appointments.filtro}&token=${process.env.ZAP_TOKEN}`
+              )
+            }
             )
           }
-          )
+
         }
 
       })
