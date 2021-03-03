@@ -35,6 +35,7 @@ var cron = require("node-cron");
 // }
 
 
+// %0a pula linha no whatsapp
 
 var task = cron.schedule('0 8 * * *', () => {
   console.log('Running a job at 08:00 at America/Sao_Paulo timezone');
@@ -51,7 +52,7 @@ var task = cron.schedule('0 8 * * *', () => {
 
 task.start();
 
-var doctorTask = cron.schedule('*/2 * * * *', () => {
+var doctorTask = cron.schedule('*/20 * * * *', () => {
   console.log('Running a job at 2min at America/Sao_Paulo timezone');
 
 
