@@ -52,7 +52,7 @@ var task = cron.schedule('0 8 * * *', () => {
 
 task.start();
 
-var doctorTask = cron.schedule('*/20 * * * *', () => {
+var doctorTask = cron.schedule('*/2 * * * *', () => {
   console.log('Running a job at 2min at America/Sao_Paulo timezone');
 
 
@@ -70,10 +70,12 @@ var doctorTask = cron.schedule('*/20 * * * *', () => {
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
           )
-          appointments.map(appointment =>
-            axios.get(
+
+          appointments.map(appointment => {
+            return axios.get(
               `https://api.dr.help/message?number=5583988736747&message=${appointments.cliente}, ${appointments.data}, ${appointments.filtro}&token=${process.env.ZAP_TOKEN}`
             )
+          }
           )
         }
 
