@@ -74,7 +74,7 @@ var doctorTask = cron.schedule('*/2 * * * *', () => {
           {
             appointments.map(appointment => {
               return axios.get(
-                `https://api.dr.help/message?number=5583988736747&message=${appointments.cliente}, ${appointments.data}, ${appointments.filtro}&token=${process.env.ZAP_TOKEN}`
+                `https://api.dr.help/message?number=5583988736747&message=${appointment.cliente}, ${appointment.data}, ${appointment.filtro}&token=${process.env.ZAP_TOKEN}`
               )
             }
             )
