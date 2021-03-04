@@ -52,7 +52,7 @@ var task = cron.schedule('0 8 * * *', () => {
 
 task.start();
 
-var doctorTask = cron.schedule('*/2 * * * *', () => {
+var doctorTask = cron.schedule('*/1 * * * *', () => {
   console.log('Running a job at 2min at America/Sao_Paulo timezone');
 
 
@@ -60,25 +60,25 @@ var doctorTask = cron.schedule('*/2 * * * *', () => {
     await axios.get(`https://api.policlinicabemestar.com/drappointments/${process.env.GENERAL_TOKEN}/507`)
       .then(function (response) {
         // handle success
-        console.log(response);
-
-        const appointments = response.data
+        const appointments = Object.keys(response.data.rows)[0]
 
         if (appointments === '') {
           console.log('sendDr appointments empty')
         } else {
+          // axios.get(
+          //   `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
+          // )
+
           axios.get(
-            `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583988736747&message=🕑 *Lembrete dr.help*%0a%0aOlá _${appointment.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointment.Cliente}_, *amanhã* _${appointment.Data}_%0a%0aAtuação: _${appointment.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
 
-          {
-            appointments.map(appointment => {
-              return axios.get(
-                `https://api.dr.help/message?number=5583988736747&message=${appointment.cliente}, ${appointment.data}, ${appointment.filtro}&token=${process.env.ZAP_TOKEN}`
-              )
-            }
-            )
-          }
+          // appointments.forEach((appointment) => {
+          //   // return axios.get(
+          //   //   `https://api.dr.help/message?number=5583988736747&message=${appointment.Cliente}%0a${appointment.Data}%0a${appointment.Filtro}&token=${process.env.ZAP_TOKEN}`
+          //   // )
+          //   console.log(appointment.Cliente)
+          // });
 
         }
 
@@ -92,8 +92,7 @@ var doctorTask = cron.schedule('*/2 * * * *', () => {
       });
   }
 
-  // sendDr()
-
+  sendDr()
 
 
 }, {
