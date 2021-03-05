@@ -22,6 +22,8 @@ import BlockController from './app/controllers/BlockController';
 import axios from 'axios';
 
 
+
+
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
@@ -37,62 +39,186 @@ var cron = require("node-cron");
 
 // %0a pula linha no whatsapp
 
-var task = cron.schedule('0 8 * * *', () => {
+// var task = cron.schedule('0 8 * * *', () => {
+//   console.log('Running a job at 08:00 at America/Sao_Paulo timezone');
+//   axios.get(
+//     `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado às 08:00 horas e repetirá todo dia...&token=${process.env.ZAP_TOKEN}`
+//   );
+//   axios.get(
+//     `https://api.dr.help/message?number=558391389448&message=Teste CRON, só será executado às 08:00 horas e repetirá todo dia...&token=${process.env.ZAP_TOKEN}`
+//   );
+// }, {
+//   scheduled: true,
+//   timezone: "America/Sao_Paulo"
+// });
+
+// task.start();
+
+var resume = cron.schedule('0 8 * * *', () => {
   console.log('Running a job at 08:00 at America/Sao_Paulo timezone');
   axios.get(
-    `https://api.dr.help/message?number=5583988736747&message=Teste CRON, só será executado às 08:00 horas e repetirá todo dia...&token=${process.env.ZAP_TOKEN}`
+    `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aFaturamento: *R$value1*%0aLucro: *R$value2*%0a%0aAtendimentos: *value3*%0aNovos Clientes: *value4*%0aAmanhã: *value5*&token=${process.env.ZAP_TOKEN}`
   );
   axios.get(
-    `https://api.dr.help/message?number=558391389448&message=Teste CRON, só será executado às 08:00 horas e repetirá todo dia...&token=${process.env.ZAP_TOKEN}`
+    `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aFaturamento: *R$value1*%0aLucro: *R$value2*%0a%0aAtendidos: *value3*%0aNovos Clientes: *value4*%0aAmanhã: *value5*&token=${process.env.ZAP_TOKEN}`
   );
 }, {
   scheduled: true,
   timezone: "America/Sao_Paulo"
 });
 
-task.start();
+resume.start();
+
+
+var doTask = cron.schedule('0 18 * * *', () => {
+  console.log("18h")
+  // Make a request for a user with a given ID
+
+
+
+  async function sendDr() {
+
+
+    await axios.get(`https://api.policlinicabemestar.com/drappointments/${process.env.GENERAL_TOKEN}/9`)
+      .then(function (response) {
+        // handle success
+        // const appointments = Object.keys(response.data.rows)[0]
+
+        // Para funcionar remover array estatico e por prox linha
+        // const appointmentscru = response.data
+        const appointmentscru = {
+          "rows": [
+            {
+              "ID": 2760,
+              "Cliente": "Jairo Bezerra de Lima Junior",
+              "Prestador": "Dr. Carlos Antonio",
+              "Data": "dia 03 de março, às  09:30h",
+              "CPF": "077.261.924-70",
+              "Telefone": "(83)98873-6747",
+              "Filtro": "Cardiologista",
+              "Preço": "150",
+              "Plano": null,
+              "Compareceu": null,
+              "Confirmou": null,
+              "Pagamento": null,
+              "Descrição": null,
+              "Recepcionista": null,
+              "Desconto": null,
+              "Comissão": "50"
+            },
+            {
+              "ID": 2761,
+              "Cliente": "Jairo Bezerra de Lima Junior",
+              "Prestador": "Dr. Carlos Antonio",
+              "Data": "dia 03 de março, às  10:30h",
+              "CPF": "077.261.924-70",
+              "Telefone": "(83)98873-6747",
+              "Filtro": "Cardiologista",
+              "Preço": "150",
+              "Plano": null,
+              "Compareceu": null,
+              "Confirmou": null,
+              "Pagamento": null,
+              "Descrição": null,
+              "Recepcionista": null,
+              "Desconto": null,
+              "Comissão": "50"
+            }
+          ]
+        }
+
+        const appointments = appointmentscru.rows[0]
+
+        console.log(appointments)
+
+        if (!appointments) {
+          console.log('sendDr appointments empty')
+        } else {
+          // axios.get(
+          //   `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
+          // )
+
+          axios.get(
+            `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+          )
+
+          // appointments.forEach((appointment) => {
+          //   // return axios.get(
+          //   //   `https://api.dr.help/message?number=5583988736747&message=${appointment.Cliente}%0a${appointment.Data}%0a${appointment.Filtro}&token=${process.env.ZAP_TOKEN}`
+          //   // )
+          //   console.log(appointment.Cliente)
+          // });
+
+        }
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  }
+
+  sendDr()
+
+
+
+
+
+
+}, {
+  scheduled: true,
+  timezone: "America/Sao_Paulo"
+});
+
+doTask.start();
+
 
 // var doctorTask = cron.schedule('*/1 * * * *', () => {
 //   console.log('Running a job at 2min at America/Sao_Paulo timezone');
 
 
-//   async function sendDr() {
-//     await axios.get(`https://api.policlinicabemestar.com/drappointments/${process.env.GENERAL_TOKEN}/507`)
-//       .then(function (response) {
-//         // handle success
-//         const appointments = Object.keys(response.data.rows)[0]
+// async function sendDr() {
 
-//         if (appointments === '') {
-//           console.log('sendDr appointments empty')
-//         } else {
-//           // axios.get(
-//           //   `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
-//           // )
 
-//           axios.get(
-//             `https://api.dr.help/message?number=5583988736747&message=🕑 *Lembrete dr.help*%0a%0aOlá _${appointment.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointment.Cliente}_, *amanhã* _${appointment.Data}_%0a%0aAtuação: _${appointment.Filtro}_&token=${process.env.ZAP_TOKEN}`
-//           )
+//   await axios.get(`https://api.policlinicabemestar.com/drappointments/${process.env.GENERAL_TOKEN}/507`)
+//     .then(function (response) {
+//       // handle success
+//       const appointments = Object.keys(response.data.rows)[0]
 
-//           // appointments.forEach((appointment) => {
-//           //   // return axios.get(
-//           //   //   `https://api.dr.help/message?number=5583988736747&message=${appointment.Cliente}%0a${appointment.Data}%0a${appointment.Filtro}&token=${process.env.ZAP_TOKEN}`
-//           //   // )
-//           //   console.log(appointment.Cliente)
-//           // });
+//       if (appointments === '') {
+//         console.log('sendDr appointments empty')
+//       } else {
+//         // axios.get(
+//         //   `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
+//         // )
 
-//         }
+//         axios.get(
+//           `https://api.dr.help/message?number=5583988736747&message=🕑 *Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+//         )
 
-//       })
-//       .catch(function (error) {
-//         // handle error
-//         console.log(error);
-//       })
-//       .then(function () {
-//         // always executed
-//       });
-//   }
+//         // appointments.forEach((appointment) => {
+//         //   // return axios.get(
+//         //   //   `https://api.dr.help/message?number=5583988736747&message=${appointment.Cliente}%0a${appointment.Data}%0a${appointment.Filtro}&token=${process.env.ZAP_TOKEN}`
+//         //   // )
+//         //   console.log(appointment.Cliente)
+//         // });
 
-//   sendDr()
+//       }
+
+//     })
+//     .catch(function (error) {
+//       // handle error
+//       console.log(error);
+//     })
+//     .then(function () {
+//       // always executed
+//     });
+// }
+
+// sendDr()
 
 
 // }, {
