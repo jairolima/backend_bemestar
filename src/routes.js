@@ -85,47 +85,47 @@ var doTask = cron.schedule('0 18 * * *', () => {
         // const appointments = Object.keys(response.data.rows)[0]
 
         // Para funcionar remover array estatico e por prox linha
-        // const appointmentscru = response.data
-        const appointmentscru = {
-          "rows": [
-            {
-              "ID": 2760,
-              "Cliente": "Jairo Bezerra de Lima Junior",
-              "Prestador": "Dr. Carlos Antonio",
-              "Data": "dia 03 de março, às  09:30h",
-              "CPF": "077.261.924-70",
-              "Telefone": "(83)98873-6747",
-              "Filtro": "Cardiologista",
-              "Preço": "150",
-              "Plano": null,
-              "Compareceu": null,
-              "Confirmou": null,
-              "Pagamento": null,
-              "Descrição": null,
-              "Recepcionista": null,
-              "Desconto": null,
-              "Comissão": "50"
-            },
-            {
-              "ID": 2761,
-              "Cliente": "Jairo Bezerra de Lima Junior",
-              "Prestador": "Dr. Carlos Antonio",
-              "Data": "dia 03 de março, às  10:30h",
-              "CPF": "077.261.924-70",
-              "Telefone": "(83)98873-6747",
-              "Filtro": "Cardiologista",
-              "Preço": "150",
-              "Plano": null,
-              "Compareceu": null,
-              "Confirmou": null,
-              "Pagamento": null,
-              "Descrição": null,
-              "Recepcionista": null,
-              "Desconto": null,
-              "Comissão": "50"
-            }
-          ]
-        }
+        const appointmentscru = response.data
+        // const appointmentscru = {
+        //   "rows": [
+        //     {
+        //       "ID": 2760,
+        //       "Cliente": "Jairo Bezerra de Lima Junior",
+        //       "Prestador": "Dr. Carlos Antonio",
+        //       "Data": "dia 03 de março, às  09:30h",
+        //       "CPF": "077.261.924-70",
+        //       "Telefone": "(83)98873-6747",
+        //       "Filtro": "Cardiologista",
+        //       "Preço": "150",
+        //       "Plano": null,
+        //       "Compareceu": null,
+        //       "Confirmou": null,
+        //       "Pagamento": null,
+        //       "Descrição": null,
+        //       "Recepcionista": null,
+        //       "Desconto": null,
+        //       "Comissão": "50"
+        //     },
+        //     {
+        //       "ID": 2761,
+        //       "Cliente": "Jairo Bezerra de Lima Junior",
+        //       "Prestador": "Dr. Carlos Antonio",
+        //       "Data": "dia 03 de março, às  10:30h",
+        //       "CPF": "077.261.924-70",
+        //       "Telefone": "(83)98873-6747",
+        //       "Filtro": "Cardiologista",
+        //       "Preço": "150",
+        //       "Plano": null,
+        //       "Compareceu": null,
+        //       "Confirmou": null,
+        //       "Pagamento": null,
+        //       "Descrição": null,
+        //       "Recepcionista": null,
+        //       "Desconto": null,
+        //       "Comissão": "50"
+        //     }
+        //   ]
+        // }
 
         const appointments = appointmentscru.rows[0]
 
@@ -137,6 +137,10 @@ var doTask = cron.schedule('0 18 * * *', () => {
           // axios.get(
           //   `https://api.dr.help/message?number=5583988736747&message=Este é um lembrete, os seus pacientes de amanhã são:&token=${process.env.ZAP_TOKEN}`
           // )
+
+          axios.get(
+            `https://api.dr.help/message?number=5583991330009&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+          )
 
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
