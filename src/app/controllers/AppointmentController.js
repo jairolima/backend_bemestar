@@ -133,6 +133,8 @@ class AppointmentController {
           return 150;
         case 'Ginecologista':
           return 100;
+        case 'Médica de família':
+          return 80;
         case 'Medicina do trabalho':
           return 35;
         case 'Medicina Integ. e Longevidade':
@@ -263,6 +265,8 @@ class AppointmentController {
         case 'Geriatra':
           return 50;
         case 'Ginecologista':
+          return 50;
+        case 'Médica de família':
           return 50;
         case 'Medicina do trabalho':
           return '57,14285714';
