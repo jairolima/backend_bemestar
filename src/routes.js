@@ -237,6 +237,59 @@ var doTask = cron.schedule('0 18 * * *', () => {
       .then(function () {
         // always executed
       });
+
+    await axios.get(`https://api.policlinicabemestar.com/drappointments/${process.env.GENERAL_TOKEN}/10`)
+      .then(function (response) {
+
+        const appointmentscru = response.data
+        const appointments = appointmentscru.rows[0]
+
+        if (!appointments) {
+          console.log('sendDr appointments empty')
+        } else {
+          axios.get(
+            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+          )
+          axios.get(
+            `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+          )
+        }
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+
+
+    await axios.get(`https://api.policlinicabemestar.com/drappointments/${process.env.GENERAL_TOKEN}/3`)
+      .then(function (response) {
+
+        const appointmentscru = response.data
+        const appointments = appointmentscru.rows[0]
+
+        if (!appointments) {
+          console.log('sendDr appointments empty')
+        } else {
+          axios.get(
+            `https://api.dr.help/message?number=5583997323233&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+          )
+          axios.get(
+            `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+          )
+        }
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
   }
 
   sendDr()
