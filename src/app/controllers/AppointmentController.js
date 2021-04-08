@@ -471,7 +471,7 @@ class AppointmentController {
         `https://api.dr.help/message?number=5583988736747&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Tomar 1 comprimido de lacto purga às 17hrs do dia anterior ao exame, e vir em jejum de 12h. Necessário beber 4 copos de água duas horas antes do exame para se examinar com a bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
       axios.get(
-        `https://api.dr.help/message?number=5583986180305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Tomar 1 comprimido de lacto purga às 17hrs do dia anterior ao exame, e vir em jejum de 12h. Necessário beber 4 copos de água duas horas antes do exame para se examinar com a bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
+        `https://api.dr.help/message?number=5583988800305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Tomar 1 comprimido de lacto purga às 17hrs do dia anterior ao exame, e vir em jejum de 12h. Necessário beber 4 copos de água duas horas antes do exame para se examinar com a bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
     } else if (filter === 'Pelvica' || filter === 'Prostata pelvica' || filter === 'Vias urinarias') {
       axios.get(
@@ -484,7 +484,7 @@ class AppointmentController {
         `https://api.dr.help/message?number=5583988736747&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Necessário beber 4 copos de água duas horas antes do exame para se examinar com bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
       axios.get(
-        `https://api.dr.help/message?number=5583986180305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Necessário beber 4 copos de água duas horas antes do exame para se examinar com bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
+        `https://api.dr.help/message?number=5583988800305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Necessário beber 4 copos de água duas horas antes do exame para se examinar com bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
     } else if (filter === 'Mamaria') {
       axios.get(
@@ -497,7 +497,7 @@ class AppointmentController {
         `https://api.dr.help/message?number=5583988736747&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_A partir dos 40 anos, só é possível realizar ultrassonografia da mama com a mamografia recente._%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
       axios.get(
-        `https://api.dr.help/message?number=5583986180305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_A partir dos 40 anos, só é possível realizar ultrassonografia da mama com a mamografia recente._%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
+        `https://api.dr.help/message?number=5583988800305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_A partir dos 40 anos, só é possível realizar ultrassonografia da mama com a mamografia recente._%0a*_Levar exames anteriores_%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
     } else {
       axios.get(
@@ -510,7 +510,7 @@ class AppointmentController {
         `https://api.dr.help/message?number=5583988736747&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
       axios.get(
-        `https://api.dr.help/message?number=5583986180305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
+        `https://api.dr.help/message?number=5583988800305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0a*_Usar máscara_&token=${process.env.ZAP_TOKEN}`
       );
     }
 
