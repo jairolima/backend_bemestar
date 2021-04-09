@@ -155,6 +155,8 @@ class AppointmentController {
           return 150;
         case 'Reumatologista':
           return 100;
+        case 'Risco cirugico':
+          return 150;
         case 'Urologista':
           return 90;
         case 'Holter':
@@ -287,6 +289,8 @@ class AppointmentController {
         case 'Psiquiatra':
           return 60;
         case 'Reumatologista':
+          return 50;
+        case 'Risco cirugico':
           return 50;
         case 'Urologista':
           return 50;
