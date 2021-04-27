@@ -54,14 +54,31 @@ var cron = require("node-cron");
 
 // task.start();
 
-var resume = cron.schedule('0 8 * * *', () => {
-  console.log('Running a job at 08:00 at America/Sao_Paulo timezone');
-  axios.get(
-    `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aFaturamento: *R$value1*%0aLucro: *R$value2*%0a%0aAtendimentos: *value3*%0aNovos Clientes: *value4*%0aAmanhã: *value5*&token=${process.env.ZAP_TOKEN}`
-  );
-  axios.get(
-    `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aFaturamento: *R$value1*%0aLucro: *R$value2*%0a%0aAtendidos: *value3*%0aNovos Clientes: *value4*%0aAmanhã: *value5*&token=${process.env.ZAP_TOKEN}`
-  );
+var resume = cron.schedule('30 18 * * *', () => {
+  console.log('Running a job at 18:30 at America/Sao_Paulo timezone');
+
+
+  await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
+    .then(function (response) {
+
+      const quantityappointments = response.data
+
+      axios.get(
+        `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+      );
+      axios.get(
+        `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+      );
+
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
 }, {
   scheduled: true,
   timezone: "America/Sao_Paulo"
