@@ -54,8 +54,8 @@ var cron = require("node-cron");
 
 // task.start();
 
-var resume = cron.schedule('30 18 * * *', () => {
-  console.log('Running a job at 18:30 at America/Sao_Paulo timezone');
+var resume = cron.schedule('0 18 * * *', () => {
+  console.log('Running a job at 18:00 at America/Sao_Paulo timezone');
 
 
   await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
@@ -86,43 +86,43 @@ var resume = cron.schedule('30 18 * * *', () => {
 
 resume.start();
 
-var doFor = cron.schedule('0 9 * * *', () => {
+// var doFor = cron.schedule('0 9 * * *', () => {
 
-  console.log('Running a job at 09:00 at America/Sao_Paulo timezone');
+//   console.log('Running a job at 09:00 at America/Sao_Paulo timezone');
 
-  const patients = {
-    "rows": [
-      {
-        "ID": 3231,
-        "Cliente": "Nome do cliente 1",
-        "Prestador": "Dra. Verônica Terrazas",
-        "Data": "dia 23 de abril, às  08:00h",
-        "CPF": "105.198.724-84",
-        "Telefone": "5583988736747",
-      },
-      {
-        "ID": 3232,
-        "Cliente": "Nome do cliente 2",
-        "Prestador": "Dra. Verônica Terrazas",
-        "Data": "dia 23 de abril, às  08:15h",
-        "CPF": "105.198.724-84",
-        "Telefone": "558391389448",
-      },
-    ]
-  }
+//   const patients = {
+//     "rows": [
+//       {
+//         "ID": 3231,
+//         "Cliente": "Nome do cliente 1",
+//         "Prestador": "Dra. Verônica Terrazas",
+//         "Data": "dia 23 de abril, às  08:00h",
+//         "CPF": "105.198.724-84",
+//         "Telefone": "5583988736747",
+//       },
+//       {
+//         "ID": 3232,
+//         "Cliente": "Nome do cliente 2",
+//         "Prestador": "Dra. Verônica Terrazas",
+//         "Data": "dia 23 de abril, às  08:15h",
+//         "CPF": "105.198.724-84",
+//         "Telefone": "558391389448",
+//       },
+//     ]
+//   }
 
-  patients.map((patient) => (
-    axios.get(
-      `https://api.dr.help/message?number=${patient.rows.Telefone}&message=Teste disparo confirmacao clientes&token=${process.env.ZAP_TOKEN}`
-    )
-  ))
+//   patients.map((patient) => (
+//     axios.get(
+//       `https://api.dr.help/message?number=${patient.rows.Telefone}&message=Teste disparo confirmacao clientes&token=${process.env.ZAP_TOKEN}`
+//     )
+//   ))
 
-}, {
-  scheduled: true,
-  timezone: "America/Sao_Paulo"
-});
+// }, {
+//   scheduled: true,
+//   timezone: "America/Sao_Paulo"
+// });
 
-doFor.start();
+// doFor.start();
 
 
 var doTask = cron.schedule('0 18 * * *', () => {
