@@ -55,44 +55,44 @@ var cron = require("node-cron");
 
 // task.start();
 
-// var daily = cron.schedule('0 4 * * *', () => {
-//   console.log('Running a job at 04:00 at America/Sao_Paulo timezone');
+var daily = cron.schedule('10 4 * * *', () => {
+  console.log('Running a job at 04:00 at America/Sao_Paulo timezone');
 
 
-//   async function sendDaily() {
-//     await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
-//       .then(function (response) {
+  async function sendDaily() {
+    await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
+      .then(function (response) {
 
-//         const quantityappointments = response.data
+        const quantityappointments = response.data
 
-//         console.log(quantityappointments.numusers)
+        console.log(quantityappointments.numusers)
 
-//         axios.get(
-//           `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
-//         );
-//         // axios.get(
-//         //   `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
-//         // );
+        axios.get(
+          `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+        );
+        // axios.get(
+        //   `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+        // );
 
-//       })
-//       .catch(function (error) {
-//         // handle error
-//         console.log(error);
-//       })
-//       .then(function () {
-//         // always executed
-//       });
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
 
-//   }
+  }
 
-//   sendDaily()
+  sendDaily()
 
-// }, {
-//   scheduled: true,
-//   timezone: "America/Sao_Paulo"
-// });
+}, {
+  scheduled: true,
+  timezone: "America/Sao_Paulo"
+});
 
-// daily.start();
+daily.start();
 
 // var doFor = cron.schedule('0 9 * * *', () => {
 
