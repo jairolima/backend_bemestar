@@ -8,7 +8,6 @@ class NewGestorUserUpdateController {
     const schema = Yup.object().shape({
       userId: Yup.number(),
       name: Yup.string(),
-      email: Yup.string().email(),
       phone: Yup.string().min(8),
       password_hash: Yup.string().min(6),
     });
@@ -17,17 +16,7 @@ class NewGestorUserUpdateController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    const { email } = req.body;
-
     const user = await User.findByPk(req.userId);
-
-    if (email !== user.email) {
-      const userExists = await User.findOne({ where: { email } });
-
-      if (userExists) {
-        return res.status(400).json({ error: 'User already exists.' });
-      }
-    }
 
     await user.update(req.body);
 
