@@ -59,28 +59,33 @@ const daily = cron.schedule('30 3 * * *', () => {
   console.log('Running a job at 03:30 at America/Sao_Paulo timezone');
 
 
-  await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
-    .then(function (response) {
+  async function sendDaily() {
+    await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
+      .then(function (response) {
 
-      const quantityappointments = response.data
+        const quantityappointments = response.data
 
-      console.log(quantityappointments.numusers)
+        console.log(quantityappointments.numusers)
 
-      axios.get(
-        `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
-      );
-      // axios.get(
-      //   `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
-      // );
+        axios.get(
+          `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+        );
+        // axios.get(
+        //   `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+        // );
 
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+
+  }
+
+  sendDaily()
 
 }, {
   scheduled: true,
