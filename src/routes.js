@@ -65,7 +65,7 @@ var daily = cron.schedule('0 19 * * *', () => {
 
         const quantityappointments = response.data
 
-        console.log(quantityappointments.numusers)
+        console.log(`pegando ${quantityappointments.numusers}`)
 
         axios.get(
           `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}/${process.env.ZAP_TOKEN}`
