@@ -5,6 +5,11 @@ import User from '../models/User';
 class NewGestorUserUpdateController {
 
   async update(req, res) {
+
+    if (req.params.token != process.env.GENERAL_TOKEN) {
+      return res.status(400).json({ error: 'Invalid env token' });
+    }
+
     const schema = Yup.object().shape({
       userId: Yup.number(),
       name: Yup.string(),
