@@ -3,6 +3,7 @@ import multer from 'multer';
 import multerConfig from './config/multer';
 
 import UserController from './app/controllers/UserController';
+import NewGestorUserUpdateController from './app/controllers/NewGestorUserUpdateController';
 import NewAllUsersController from './app/controllers/NewAllUsersController';
 import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
@@ -54,37 +55,39 @@ var cron = require("node-cron");
 
 // task.start();
 
-// var resume = cron.schedule('0 18 * * *', () => {
-//   console.log('Running a job at 18:00 at America/Sao_Paulo timezone');
+const daily = cron.schedule('30 3 * * *', () => {
+  console.log('Running a job at 03:30 at America/Sao_Paulo timezone');
 
 
-//   await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
-//     .then(function (response) {
+  await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
+    .then(function (response) {
 
-//       const quantityappointments = response.data
+      const quantityappointments = response.data
 
-//       axios.get(
-//         `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
-//       );
-//       axios.get(
-//         `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
-//       );
+      console.log(quantityappointments.numusers)
 
-//     })
-//     .catch(function (error) {
-//       // handle error
-//       console.log(error);
-//     })
-//     .then(function () {
-//       // always executed
-//     });
+      axios.get(
+        `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+      );
+      // axios.get(
+      //   `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
+      // );
 
-// }, {
-//   scheduled: true,
-//   timezone: "America/Sao_Paulo"
-// });
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
 
-// resume.start();
+}, {
+  scheduled: true,
+  timezone: "America/Sao_Paulo"
+});
+
+daily.start();
 
 // var doFor = cron.schedule('0 9 * * *', () => {
 
@@ -415,6 +418,7 @@ doTask.start();
 // doctorTask.start();
 
 
+routes.put('/updateuser/:token', NewGestorUserUpdateController.index);
 
 routes.get('/newallusers/:token', NewAllUsersController.index);
 
