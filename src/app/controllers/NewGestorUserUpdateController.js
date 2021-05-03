@@ -40,7 +40,6 @@ class NewGestorUserUpdateController {
     return res.json({
       id,
       name,
-      email,
       avatar,
       provider,
       phone,
