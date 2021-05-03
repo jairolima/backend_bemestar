@@ -423,7 +423,7 @@ doTask.start();
 // doctorTask.start();
 
 
-routes.put('/updateuser/:token', NewGestorUserUpdateController.update);
+routes.put('/updateuser/:id/:token', NewGestorUserUpdateController.update);
 
 routes.get('/newallusers/:token', NewAllUsersController.index);
 
