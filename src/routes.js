@@ -55,8 +55,8 @@ var cron = require("node-cron");
 
 // task.start();
 
-var daily = cron.schedule('0 19 * * *', () => {
-  console.log('Running a job at 19:00 at America/Sao_Paulo timezone');
+var daily = cron.schedule('0 21 * * *', () => {
+  console.log('Running a job at 21:00 at America/Sao_Paulo timezone');
 
 
   async function sendDaily() {
@@ -68,7 +68,7 @@ var daily = cron.schedule('0 19 * * *', () => {
         console.log(`pegando ${quantityappointments.numusers}`)
 
         axios.get(
-          `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}/${process.env.ZAP_TOKEN}`
+          `https://api.dr.help/message?number=5583988736747&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}&token=${process.env.ZAP_TOKEN}`
         );
         // axios.get(
         //   `https://api.dr.help/message?number=558391389448&message=*Resumo diario*%0a%0aClientes: ${quantityappointments.numusers}%0aAgendamentos: ${quantityappointments.numappointments}%0aAgendamentos hoje: ${quantityappointments.numdaily}`
