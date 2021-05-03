@@ -55,8 +55,8 @@ var cron = require("node-cron");
 
 // task.start();
 
-const daily = cron.schedule('30 3 * * *', () => {
-  console.log('Running a job at 03:30 at America/Sao_Paulo timezone');
+const daily = cron.schedule('0 4 * * *', () => {
+  console.log('Running a job at 04:00 at America/Sao_Paulo timezone');
 
 
   async function sendDaily() {
