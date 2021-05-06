@@ -60,7 +60,7 @@ var daily = cron.schedule('30 18 * * *', () => {
 
 
   async function sendDaily() {
-    await axios.get(`https://api.policlinicabemestar.com/quantityappointments`)
+    await axios.get(`https://api.policlinicabemestar.com/quantityappointments/${process.env.GENERAL_TOKEN}`)
       .then(function (response) {
 
         const quantityappointments = response.data
@@ -446,8 +446,8 @@ routes.post('/sessions', SessionController.store);
 routes.put('/confirmation', WhatsappConfirmationController.update);
 
 routes.get('/', (req, res) => res.send('Backend OK'));
-routes.get('/allappointments', AllappointmentController.index);
-routes.get('/quantityappointments', QuantityappointmentController.index);
+routes.get('/allappointments/:token', AllappointmentController.index);
+routes.get('/quantityappointments/:token', QuantityappointmentController.index);
 routes.get('/providers', ProviderController.index);
 routes.get('/providers/:providerId/available', AvailableController.index);
 
