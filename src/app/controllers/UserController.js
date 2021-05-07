@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import File from '../models/File';
 import User from '../models/User';
+import axios from 'axios';
 
 class UserController {
   async store(req, res) {
