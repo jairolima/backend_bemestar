@@ -102,6 +102,8 @@ class AllappointmentController {
     const appointment = await Appointment.findByPk(id);
 
     await appointment.update({
+      showed_up: req.body.showed_up,
+      confirmed: req.body.confirmed,
       recepcionist: req.body.recepcionist,
       payment_option: req.body.payment_option,
     });
