@@ -94,43 +94,64 @@ var daily = cron.schedule('30 18 * * *', () => {
 
 daily.start();
 
-// var doFor = cron.schedule('0 9 * * *', () => {
 
-//   console.log('Running a job at 09:00 at America/Sao_Paulo timezone');
 
-//   const patients = {
-//     "rows": [
-//       {
-//         "ID": 3231,
-//         "Cliente": "Nome do cliente 1",
-//         "Prestador": "Dra. Verônica Terrazas",
-//         "Data": "dia 23 de abril, às  08:00h",
-//         "CPF": "105.198.724-84",
-//         "Telefone": "5583988736747",
-//       },
-//       {
-//         "ID": 3232,
-//         "Cliente": "Nome do cliente 2",
-//         "Prestador": "Dra. Verônica Terrazas",
-//         "Data": "dia 23 de abril, às  08:15h",
-//         "CPF": "105.198.724-84",
-//         "Telefone": "558391389448",
-//       },
-//     ]
-//   }
 
-//   patients.map((patient) => (
-//     axios.get(
-//       `https://api.dr.help/message?number=${patient.rows.Telefone}&message=Teste disparo confirmacao clientes&token=${process.env.ZAP_TOKEN}`
-//     )
-//   ))
+var doFor = cron.schedule('0 23 * * *', () => {
 
-// }, {
-//   scheduled: true,
-//   timezone: "America/Sao_Paulo"
-// });
+  console.log('Running a job at 23:00 at America/Sao_Paulo timezone');
 
-// doFor.start();
+  const patients = {
+    "rows": [
+      {
+        "ID": 3231,
+        "Cliente": "Nome do cliente 1",
+        "Prestador": "Dra. Verônica Terrazas",
+        "Data": "dia 23 de abril, às  08:00h",
+        "CPF": "105.198.724-84",
+        "Telefone": "5583988736747",
+      },
+      {
+        "ID": 3232,
+        "Cliente": "Nome do cliente 2",
+        "Prestador": "Dra. Verônica Terrazas",
+        "Data": "dia 23 de abril, às  08:15h",
+        "CPF": "105.198.724-84",
+        "Telefone": "558391389448",
+      },
+    ]
+  }
+
+
+  Promise.all([
+
+    patients.map((patient) => (
+      await axios.get(
+        `https://api.dr.help/message?number=${patient.rows.Telefone}&message=Teste disparo confirmacao clientes&token=${process.env.ZAP_TOKEN}`
+      )
+    ))
+
+  ]).then(function (responses) {
+    // Get a JSON object from each of the responses
+    return Promise.all(responses.map(function (response) {
+      return response.json();
+    }));
+  }).then(function (data) {
+    // Log the data to the console
+    // You would do something with both sets of data here
+    console.log(data);
+  }).catch(function (error) {
+    // if there's an error, log it
+    console.log(error);
+  });
+
+
+}, {
+  scheduled: true,
+  timezone: "America/Sao_Paulo"
+});
+
+doFor.start();
 
 
 var doTask = cron.schedule('0 18 * * *', () => {

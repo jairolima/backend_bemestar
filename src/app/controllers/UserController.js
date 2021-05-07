@@ -40,7 +40,7 @@ class UserController {
 
     try {
       axios.get(
-        `https://api.dr.help/message?number=55${user.phone.replace(/\D/gim, '')}&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${name}_, o seu cadastro foi realizado com sucesso no site de agendamentos da policlínica bem estar, agora você pode acessar pelo link: https://agenda.policlinicabemestar.com e aceder com seu número de telefone e cpf&token=${process.env.ZAP_TOKEN}`
+        `https://api.dr.help/message?number=55${phone.replace(/\D/gim, '')}&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${name}_, o seu cadastro foi realizado com sucesso no site de agendamentos da policlínica bem estar, agora você pode acessar pelo link: https://agenda.policlinicabemestar.com e aceder com seu número de telefone e cpf&token=${process.env.ZAP_TOKEN}`
       );
       axios.get(
         `https://api.dr.help/message?number=5583988736747&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${name}_, o seu cadastro foi realizado com sucesso no site de agendamentos da policlínica bem estar, agora você pode acessar pelo link: https://agenda.policlinicabemestar.com e aceder com seu número de telefone e cpf&token=${process.env.ZAP_TOKEN}`
