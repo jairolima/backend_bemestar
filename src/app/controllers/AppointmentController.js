@@ -201,51 +201,51 @@ class AppointmentController {
           return 60;
         case 'Raio X de coluna lombar completa':
           return 150;
-        case 'Abdomen superior':
+        case 'Ultrassom Abdomen superior':
           return 80;
-        case 'Abdomen total':
+        case 'Ultrassom Abdomen total':
           return 100;
-        case 'Cervical/Pescoço':
+        case 'Ultrassom Cervical/Pescoço':
           return 80;
-        case 'Cervical com Doppler':
+        case 'Ultrassom Cervical com Doppler':
           return 130;
-        case 'Doppler de carótidas e vertebrais':
+        case 'Ultrassom Doppler de carótidas e vertebrais':
           return 180;
-        case 'Doppler de membro inferior (Ambos)':
+        case 'Ultrassom Doppler de membro inferior (Ambos)':
           return 350;
-        case 'Doppler de membro inferior (Um membro)':
+        case 'Ultrassom Doppler de membro inferior (Um membro)':
           return 180;
-        case 'Inguinal bilateral':
+        case 'Ultrassom Inguinal bilateral':
           return 130;
-        case 'Inguinal':
+        case 'Ultrassom Inguinal':
           return 80;
-        case 'Mamaria':
+        case 'Ultrassom Mamaria':
           return 80;
-        case 'Morfologica':
+        case 'Ultrassom Morfologica':
           return 200;
-        case 'Obstétrica':
+        case 'Ultrassom Obstétrica':
           return 80;
-        case 'Obstétrica com doppler':
+        case 'Ultrassom Obstétrica com doppler':
           return 130;
-        case 'Obstétrica gemelar com doppler':
+        case 'Ultrassom Obstétrica gemelar com doppler':
           return 180;
-        case 'Parede abdominal':
+        case 'Ultrassom Parede abdominal':
           return 80;
-        case 'Pequenas partes':
+        case 'Ultrassom Pequenas partes':
           return 80;
-        case 'Transvaginal com doppler':
+        case 'Ultrassom Transvaginal com doppler':
           return 130;
-        case 'Pelvica':
+        case 'Ultrassom Pelvica':
           return 80;
-        case 'Prostata pelvica':
+        case 'Ultrassom Prostata pelvica':
           return 80;
-        case 'Tireoide com doppler':
+        case 'Ultrassom Tireoide com doppler':
           return 110;
-        case 'Translucencia nucal':
+        case 'Ultrassom Translucencia nucal':
           return 130;
-        case 'Transvaginal':
+        case 'Ultrassom Transvaginal':
           return 80;
-        case 'Vias urinarias':
+        case 'Ultrassom Vias urinarias':
           return 80;
         default:
           break;
@@ -336,51 +336,51 @@ class AppointmentController {
           return 0;
         case 'Raio X de coluna lombar completa':
           return 0;
-        case 'Abdomen superior':
+        case 'Ultrassom Abdomen superior':
           return 50;
-        case 'Abdomen total':
+        case 'Ultrassom Abdomen total':
           return 50;
-        case 'Cervical/Pescoço':
+        case 'Ultrassom Cervical/Pescoço':
           return 50;
-        case 'Cervical com Doppler':
+        case 'Ultrassom Cervical com Doppler':
           return 50;
-        case 'Doppler de carótidas e vertebrais':
+        case 'Ultrassom Doppler de carótidas e vertebrais':
           return 50;
-        case 'Doppler de membro inferior (Ambos)':
+        case 'Ultrassom Doppler de membro inferior (Ambos)':
           return 50;
-        case 'Doppler de membro inferior (Um membro)':
+        case 'Ultrassom Doppler de membro inferior (Um membro)':
           return 50;
-        case 'Inguinal bilateral':
+        case 'Ultrassom Inguinal bilateral':
           return 50;
-        case 'Inguinal':
+        case 'Ultrassom Inguinal':
           return 50;
-        case 'Mamaria':
+        case 'Ultrassom Mamaria':
           return 50;
-        case 'Morfologica':
+        case 'Ultrassom Morfologica':
           return 50;
-        case 'Obstétrica':
+        case 'Ultrassom Obstétrica':
           return 50;
-        case 'Obstétrica com doppler':
+        case 'Ultrassom Obstétrica com doppler':
           return 50;
-        case 'Obstétrica gemelar com doppler':
+        case 'Ultrassom Obstétrica gemelar com doppler':
           return 50;
-        case 'Parede abdominal':
+        case 'Ultrassom Parede abdominal':
           return 50;
-        case 'Pequenas partes':
+        case 'Ultrassom Pequenas partes':
           return 50;
-        case 'Transvaginal com doppler':
+        case 'Ultrassom Transvaginal com doppler':
           return 50;
-        case 'Pelvica':
+        case 'Ultrassom Pelvica':
           return 50;
-        case 'Prostata pelvica':
+        case 'Ultrassom Prostata pelvica':
           return 50;
-        case 'Tireoide com doppler':
+        case 'Ultrassom Tireoide com doppler':
           return 50;
-        case 'Translucencia nucal':
+        case 'Ultrassom Translucencia nucal':
           return 50;
-        case 'Transvaginal':
+        case 'Ultrassom Transvaginal':
           return 50;
-        case 'Vias urinarias':
+        case 'Ultrassom Vias urinarias':
           return 50;
         default:
           break;
