@@ -129,7 +129,7 @@ class AppointmentController {
           return 200;
         case 'Gastroenterologia':
           return 100;
-        case 'Geriatra':
+        case 'Geriatria':
           return 150;
         case 'Ginecologia':
           return 100;
@@ -264,7 +264,7 @@ class AppointmentController {
           return 50;
         case 'Gastroenterologia':
           return 50;
-        case 'Geriatra':
+        case 'Geriatria':
           return 50;
         case 'Ginecologia':
           return 50;
