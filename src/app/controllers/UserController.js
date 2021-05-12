@@ -6,7 +6,7 @@ import axios from 'axios';
 class UserController {
   async store(req, res) {
     const schema = Yup.object().shape({
-      name: Yup.string().required(),
+      name: Yup.string().required().trim(),
       email: Yup.string().email(),
       password_hash: Yup.string()
         .required()
