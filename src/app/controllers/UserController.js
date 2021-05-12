@@ -28,6 +28,8 @@ class UserController {
       return res.status(400).json({ error: 'User already exists.' });
     }
 
+    const name = req.body.name.trim()
+
     const {
       id,
       name,
