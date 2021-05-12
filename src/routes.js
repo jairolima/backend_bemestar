@@ -385,7 +385,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583996948308&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -411,7 +411,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583988154426&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -437,7 +437,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583999035163&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -463,7 +463,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583987350032&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -489,7 +489,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583988910495&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -515,7 +515,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583989024670&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -541,7 +541,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583999213028&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -567,7 +567,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583999857172&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -593,7 +593,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583986539806&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -619,7 +619,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583988835786&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -645,7 +645,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5581993022153&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
@@ -671,7 +671,7 @@ var doTask = cron.schedule('0 18 * * *', () => {
           console.log('sendDr appointments empty')
         } else {
           axios.get(
-            `https://api.dr.help/message?number=5583991674483&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
+            `https://api.dr.help/message?number=5583981661892&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`
           )
           axios.get(
             `https://api.dr.help/message?number=5583988736747&message=*Lembrete dr.help*%0a%0aOlá _${appointments.Prestador}_,%0aO seu primeiro paciente na Policlínica Bem Estar é _${appointments.Cliente}_, *amanhã* _${appointments.Data}_%0a%0aAtuação: _${appointments.Filtro}_&token=${process.env.ZAP_TOKEN}`

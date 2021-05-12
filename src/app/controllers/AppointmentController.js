@@ -119,19 +119,19 @@ class AppointmentController {
 
     function thePrice() {
       switch (filter) {
-        case 'Cardiologista':
+        case 'Cardiologia':
           return 150;
         case 'Clinico Geral':
           return 80;
-        case 'Dermatologista':
+        case 'Dermatologia':
           return 130;
-        case 'Endocrinologista':
+        case 'Endocrinologia':
           return 200;
-        case 'Gastroenterologista':
+        case 'Gastroenterologia':
           return 100;
         case 'Geriatra':
           return 150;
-        case 'Ginecologista':
+        case 'Ginecologia':
           return 100;
         case 'Médica de família':
           return 80;
@@ -141,23 +141,23 @@ class AppointmentController {
           return 0;
         case 'Nutricionista':
           return 140;
-        case 'Nutrólogo':
+        case 'Nutrologia':
           return 250;
-        case 'Ortopedista':
+        case 'Ortopedia':
           return 100;
         case 'Otorrino':
           return 100;
-        case 'Pediatra':
+        case 'Pediatria':
           return 90;
         case 'Psicologia':
           return 80;
-        case 'Psiquiatra':
+        case 'Psiquiatria':
           return 150;
-        case 'Reumatologista':
+        case 'Reumatologia':
           return 100;
         case 'Risco cirugico':
           return 150;
-        case 'Urologista':
+        case 'Urologia':
           return 90;
         case 'Holter':
           return 150;
@@ -254,19 +254,19 @@ class AppointmentController {
 
     function theCommission() {
       switch (filter) {
-        case 'Cardiologista':
+        case 'Cardiologia':
           return 50;
         case 'Clinico Geral':
           return 50;
-        case 'Dermatologista':
+        case 'Dermatologia':
           return 60;
-        case 'Endocrinologista':
+        case 'Endocrinologia':
           return 50;
-        case 'Gastroenterologista':
+        case 'Gastroenterologia':
           return 50;
         case 'Geriatra':
           return 50;
-        case 'Ginecologista':
+        case 'Ginecologia':
           return 50;
         case 'Médica de família':
           return 50;
@@ -276,23 +276,23 @@ class AppointmentController {
           return 50;
         case 'Nutricionista':
           return 60;
-        case 'Nutrólogo':
+        case 'Nutrologia':
           return 60;
-        case 'Ortopedista':
+        case 'Ortopedia':
           return 50;
         case 'Otorrino':
           return 50;
-        case 'Pediatra':
+        case 'Pediatria':
           return 50;
         case 'Psicologia':
           return 50;
-        case 'Psiquiatra':
+        case 'Psiquiatria':
           return 60;
-        case 'Reumatologista':
+        case 'Reumatologia':
           return 50;
         case 'Risco cirugico':
           return 50;
-        case 'Urologista':
+        case 'Urologia':
           return 50;
         case 'Holter':
           return 50;
