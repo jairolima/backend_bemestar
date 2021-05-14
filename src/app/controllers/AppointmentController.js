@@ -464,7 +464,7 @@ class AppointmentController {
     //   }
     // }
 
-    if (filter === 'Abdomen superior' || filter === 'Abdomen total') {
+    if (filter === 'Ultrassom Abdomen superior' || filter === 'Ultrassom Abdomen total') {
       axios.get(
         `https://api.dr.help/message?number=55${user.phone.replace(/\D/gim, '')}&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Tomar 1 comprimido de lacto purga às 17hrs do dia anterior ao exame, e vir em jejum de 12h. Necessário beber 4 copos de água duas horas antes do exame para se examinar com a bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_%0a*_Pela segurança de todos os clientes, não estamos realizando atendimentos para o público com sintomas e/ou diagnósticados com COVID-19_&token=${process.env.ZAP_TOKEN}`
       );
@@ -477,7 +477,7 @@ class AppointmentController {
       axios.get(
         `https://api.dr.help/message?number=5583986180305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Tomar 1 comprimido de lacto purga às 17hrs do dia anterior ao exame, e vir em jejum de 12h. Necessário beber 4 copos de água duas horas antes do exame para se examinar com a bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_%0a*_Pela segurança de todos os clientes, não estamos realizando atendimentos para o público com sintomas e/ou diagnósticados com COVID-19_&token=${process.env.ZAP_TOKEN}`
       );
-    } else if (filter === 'Pelvica' || filter === 'Prostata pelvica' || filter === 'Vias urinarias') {
+    } else if (filter === 'Ultrassom Pelvica' || filter === 'Ultrassom Prostata pelvica' || filter === 'Ultrassom Vias urinarias') {
       axios.get(
         `https://api.dr.help/message?number=55${user.phone.replace(/\D/gim, '')}&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Necessário beber 4 copos de água duas horas antes do exame para se examinar com bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_%0a*_Pela segurança de todos os clientes, não estamos realizando atendimentos para o público com sintomas e/ou diagnósticados com COVID-19_&token=${process.env.ZAP_TOKEN}`
       );
@@ -490,7 +490,7 @@ class AppointmentController {
       axios.get(
         `https://api.dr.help/message?number=5583986180305&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_Necessário beber 4 copos de água duas horas antes do exame para se examinar com bexiga cheia_%0a*_Levar exames anteriores_%0a*_Usar máscara_%0a*_Pela segurança de todos os clientes, não estamos realizando atendimentos para o público com sintomas e/ou diagnósticados com COVID-19_&token=${process.env.ZAP_TOKEN}`
       );
-    } else if (filter === 'Mamaria') {
+    } else if (filter === 'Ultrassom Mamaria') {
       axios.get(
         `https://api.dr.help/message?number=55${user.phone.replace(/\D/gim, '')}&message=*Lembrete Bem Estar*%0a%0a*Bella:* Olá _${user.name}_. Agendado ${filter} para às *${hourStart.getHours()}:${hourStart.getMinutes()}h* no dia *${hourStart.getDate()}/${hourStart.getMonth() + 1}* com ${doctor.name}%0a%0aIndicações:%0a*_A partir dos 40 anos, só é possível realizar ultrassonografia da mama com a mamografia recente._%0a*_Levar exames anteriores_%0a*_Usar máscara_%0a*_Pela segurança de todos os clientes, não estamos realizando atendimentos para o público com sintomas e/ou diagnósticados com COVID-19_&token=${process.env.ZAP_TOKEN}`
       );
